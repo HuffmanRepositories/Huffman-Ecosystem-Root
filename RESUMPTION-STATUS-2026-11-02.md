@@ -153,3 +153,11 @@ Latest Root commit checked: `907c93c0f92685006c01f75f62bf9572882909d1`:
 The maintainer has requested that branch rulesets be handled later. Keep branch protection/rulesets for all 14 repositories marked as a **HUMAN TASK / DEFERRED**, not as AI-completed. Also owner-only tasks remain: account 2FA/recovery and credential review, native GitHub security alert dashboard review, private ruleset verification, About metadata/topics/homepage/profile pins, GitHub Project board linking, licensing approval, release/tag/signing policy, and Discussions policy.
 
 Canonical checklist: [Root issue #2 — portfolio governance, security, and release-readiness tracker](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/issues/2).
+
+
+## Continuation — USI envelope CI added
+
+- Added GitHub Actions workflow `.github/workflows/usi-validation.yml` to run the Python USI envelope validator on relevant pushes/PRs and manual dispatch.
+- Workflow passed on commit `e2ddea963a1b8a509caaed2daf9e308d90775024`: https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41527557594
+- Current test scope is envelope shape only (3 valid + 4 invalid fixtures); semantic/payload validation, cross-language conformance, and runtime/security testing remain outstanding.
+- README and release-readiness review updated with CI path and explicit test limitations.
