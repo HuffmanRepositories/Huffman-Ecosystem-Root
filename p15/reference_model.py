@@ -48,7 +48,7 @@ class StopController:
 
     def dispatch_allowed(self, task_id: str) -> bool:
         """Fail closed if control state is unavailable or any ancestor is stopped."""
-        if not self.available or task_id not in self.tasks:
+        if not self.available or not self.identity_available or task_id not in self.tasks:
             return False
         task = self.tasks[task_id]
         seen = set()
