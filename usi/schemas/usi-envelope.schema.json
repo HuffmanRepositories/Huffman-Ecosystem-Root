@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/blob/main/usi/schemas/usi-envelope.schema.json",
+  "title": "USI 0.1 Message Envelope",
+  "description": "Draft schema for the Universal Semantic Interoperability 0.1 envelope. Not a released standard.",
+  "type": "object",
+  "required": ["spec", "operation", "request_id"],
+  "properties": {
+    "spec": {
+      "const": "usi/0.1"
+    },
+    "operation": {
+      "type": "string",
+      "pattern": "^usi\\.[a-z][a-z0-9]*(?:\\.[a-z][a-z0-9]*)*$"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "locale": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 64
+    },
+    "trace": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
