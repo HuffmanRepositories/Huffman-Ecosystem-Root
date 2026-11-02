@@ -13,17 +13,54 @@
     "AGENT-ROUTER.json"
   ],
   "routes": [
-    {"intent":"mission-and-coordination","url":"https://github.com/HuffmanRepositories/Open-Source-AI-Independence"},
-    {"intent":"human-onboarding","url":"https://github.com/HuffmanRepositories/Huffman-Ecosystem-Guide"},
-    {"intent":"portfolio-discovery","url":"https://github.com/HuffmanRepositories/HuffmanRepositories"},
-    {"intent":"protocol-compatibility","url":"https://github.com/HuffmanRepositories/Open-Agent-Compatibility"},
-    {"intent":"compatibility-fixtures","url":"https://github.com/HuffmanRepositories/Open-Agent-Compatibility-Fixtures"},
-    {"intent":"run-metrics","url":"https://github.com/HuffmanRepositories/Open-Agent-Run-Metrics-Interop"},
-    {"intent":"memory-portability","url":"https://github.com/HuffmanRepositories/Agent-Memory-Portability-Tests"},
-    {"intent":"evaluation-integrity","url":"https://github.com/HuffmanRepositories/Agent-Evaluation-Oracle-Integrity-Fixtures"},
-    {"intent":"retry-idempotency","url":"https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures"},
-    {"intent":"delegation-scope","url":"https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures"},
-    {"intent":"delegated-budgets","url":"https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures"}
+    {
+      "intent": "mission-and-coordination",
+      "url": "https://github.com/HuffmanRepositories/Open-Source-AI-Independence"
+    },
+    {
+      "intent": "human-onboarding",
+      "url": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Guide"
+    },
+    {
+      "intent": "portfolio-discovery",
+      "url": "https://github.com/HuffmanRepositories/HuffmanRepositories"
+    },
+    {
+      "intent": "protocol-compatibility",
+      "url": "https://github.com/HuffmanRepositories/Open-Agent-Compatibility"
+    },
+    {
+      "intent": "compatibility-fixtures",
+      "url": "https://github.com/HuffmanRepositories/Open-Agent-Compatibility-Fixtures"
+    },
+    {
+      "intent": "run-metrics",
+      "url": "https://github.com/HuffmanRepositories/Open-Agent-Run-Metrics-Interop"
+    },
+    {
+      "intent": "memory-portability",
+      "url": "https://github.com/HuffmanRepositories/Agent-Memory-Portability-Tests"
+    },
+    {
+      "intent": "evaluation-integrity",
+      "url": "https://github.com/HuffmanRepositories/Agent-Evaluation-Oracle-Integrity-Fixtures"
+    },
+    {
+      "intent": "retry-idempotency",
+      "url": "https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures"
+    },
+    {
+      "intent": "delegation-scope",
+      "url": "https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures"
+    },
+    {
+      "intent": "delegated-budgets",
+      "url": "https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures"
+    },
+    {
+      "intent": "user-controlled-emergency-stop-reference-fixtures",
+      "url": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/tree/main/p15"
+    }
   ],
   "cross_repository_rule": "Read additional repositories only for documented dependencies or explicit user requests; explain why."
 }
