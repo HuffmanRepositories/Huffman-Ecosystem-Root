@@ -112,6 +112,28 @@ The current P15 workflow passes. Sixteen modeled scenario assertions pass; four 
 6. For any future live agent deployment, implement the user stop control outside the model/runtime and test identity, credential, queue, child-agent, external integration, accessibility, race, recovery, and incident-response behavior end to end.
 7. Obtain qualified legal review of actual operations and data flows. The existing compliance note is issue-spotting, not a legal opinion or compliance certification.
 
+
+## Final front-page review (2026-11-02)
+
+Reviewed the primary public landing pages and refreshed portfolio-level descriptions/status links:
+
+- Profile README: clarified current research/fixture status and linked canonical root and release-readiness review.
+- Mission hub README: clarified that it is a mission/roadmap/coordination hub, not a deployed runtime.
+- Ecosystem Guide README: clarified its onboarding/documentation role and linked status/release gates.
+- Ecosystem Root README: clarified ecosystem maturity and explicitly disclaimed a unified production runtime or ecosystem certification.
+- OAC README: added a concise research-foundation status and limits on interpreting compatibility/validation evidence.
+- Other technical project READMEs already contain project-specific scope, maturity, and validation-limit language; they were left intact rather than reworded unnecessarily.
+
+The canonical recommended GitHub About descriptions, homepage URLs, and topics remain in [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md). **These GitHub About fields are not yet applied**: the connected GitHub tool supports content-file commits but does not expose About-field editing or account pin management. Repository settings/pins therefore require direct maintainer UI action.
+
+Latest root front-page commit: `66f2202637bb295ca5233e7972c74bbf459e22b6`. Its P15, CodeQL, and full-history secret-scan workflows were queued at the time of this review update. Earlier root commit `d95d573f2da130d0d2f58b2e45d8fb280effd14d` had all three completed successfully.
+
+## Final completion determination
+
+**Documentation and baseline maintenance: substantially complete for this pass.** The front-facing README descriptions reviewed above are aligned with the research/fixture maturity, public ecosystem routing, and current release limitations. The account-wide PR review, repo policy work, and public CI/secret-scan spot checks are recorded in this document.
+
+**Ecosystem release/project completion: NOT CONFIRMED.** This is intentionally not marked complete because publication/licensing/admin work remains outstanding: GitHub About metadata/pins, branch/ruleset and account-security verification, maintainer-approved license decisions, release tags/assets, exhaustive external-link/discussion review, and legal review. P15 is a reference model, not a deployed kill switch. No GitHub Releases or production runtime have been published/deployed in this pass.
+
 ## Close-up recommendation
 
 Treat the current state as a **validated public research/fixture baseline with release blockers**, not as a finished production system. Do not announce the ecosystem as fully deployed, certified, production-ready, or finally released until the blockers above are closed and the evidence is recorded.
