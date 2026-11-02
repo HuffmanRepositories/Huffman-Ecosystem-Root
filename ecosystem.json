@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "name": "HuffmanRepositories Public Ecosystem",
+  "steward": "Robert Huffman",
+  "scope": "public repositories only; private workspaces excluded",
+  "projects": [
+    ["portfolio","HuffmanRepositories","https://github.com/HuffmanRepositories/HuffmanRepositories","discovery"],
+    ["mission","Open-Source-AI-Independence","https://github.com/HuffmanRepositories/Open-Source-AI-Independence","coordination"],
+    ["guide","Huffman-Ecosystem-Guide","https://github.com/HuffmanRepositories/Huffman-Ecosystem-Guide","documentation"],
+    ["oac","Open-Agent-Compatibility","https://github.com/HuffmanRepositories/Open-Agent-Compatibility","research-foundation"],
+    ["oac-fixtures","Open-Agent-Compatibility-Fixtures","https://github.com/HuffmanRepositories/Open-Agent-Compatibility-Fixtures","draft-fixtures"],
+    ["oarmi","Open-Agent-Run-Metrics-Interop","https://github.com/HuffmanRepositories/Open-Agent-Run-Metrics-Interop","early-research"],
+    ["p10","Agent-Memory-Portability-Tests","https://github.com/HuffmanRepositories/Agent-Memory-Portability-Tests","draft-fixtures"],
+    ["p11","Agent-Evaluation-Oracle-Integrity-Fixtures","https://github.com/HuffmanRepositories/Agent-Evaluation-Oracle-Integrity-Fixtures","draft-fixtures"],
+    ["p12","Agent-Tool-Retry-Idempotency-Fixtures","https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures","draft-fixtures"],
+    ["p13","Agent-Delegation-Scope-Boundary-Fixtures","https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures","draft-fixtures"],
+    ["p14","Agent-Delegated-Budget-Enforcement-Fixtures","https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures","draft-fixtures"]
+  ],
+  "rule": "Choose the smallest project set needed. Each repository owns its specifications, tests, license, security policy, and maturity claims."
+}
