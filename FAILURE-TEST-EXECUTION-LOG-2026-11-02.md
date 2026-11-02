@@ -85,3 +85,37 @@ This is not an integration test of the Agent-Delegated-Budget-Enforcement-Fixtur
 ## Access / verification limits (continued)
 - Branch-protection endpoint reads returned HTTP 403 for the GitHub connector. Rulesets/required checks cannot be verified from this connection; user-side GitHub settings review remains required.
 - No production credential revocation, account recovery, actual queue/scheduler, or real agent stop was attempted.
+
+
+## Adversarial follow-up — P15 model event isolation (2026-11-02)
+
+Latest root commit: `7b8ba5d2af66ab75f2455aacae6e8ba0e0d24fb1`.
+
+### Newly discovered weakness and mitigation
+
+A caller could mutate the stop event object returned by the reference model, thereby modifying the same object retained in the idempotency cache and potentially corrupting future replay results. This was a model-level defect (not a production incident).
+
+Changes:
+- Return defensive copies for cached idempotent responses.
+- Keep independent copies in the cache and in the in-memory audit list.
+- Serialize the model's dispatch authorization snapshot with stop transitions using the same process-local lock.
+- Add tests for returned-event mutation, replay copy isolation, child dispatch denial after stop, and cyclic parent graphs failing closed.
+
+Source change commit: `15b825e16bcc2e91a8d254b64f6fa816ef2a1c15`.  
+Regression tests commit: `7b8ba5d2af66ab75f2455aacae6e8ba0e0d24fb1`.
+
+### CI evidence on the latest commit
+
+- [P15 validation — success](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41508203955)
+- [Full-history secret scan — success](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41508203917)
+- [CodeQL — still running at last poll](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41508203932)
+- P15 test job output: **27 tests run; 23 passed; 4 skipped; no failures**.
+
+The four skips remain UI tampering, accessibility, distributed stop/resume race, and tamper-evident external audit storage. The new dispatch-lock test only verifies the in-process model's snapshot behavior; it is not an atomic real-world dispatch/execute guarantee. It does not resolve multi-process or distributed races.
+
+### Additional model caveats identified
+
+- The reference model still has no real identity/token revocation, queue/scheduler cancellation, provider API cancellation, durable audit log, or independent stop control.
+- A successful boolean dispatch check is not an execution reservation; an actual runtime needs an atomic authorization-and-dispatch boundary or a capability/gateway that can prevent TOCTOU races.
+- The synthetic budget model and P15 are separate; there is no integrated parent/child budget ledger or real scheduler/runtime enforcement.
+- Tests validate model invariants and deliberately malformed graph input, not deployed service behavior.
