@@ -13,7 +13,7 @@
 | [P12](https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures) | Retry and uncertain outcomes | Exactly-once guarantee |
 | [P13](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures) | Delegated authority boundaries | Authorization engine |
 | [P14](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures) | Delegated budget scenarios | Production budget manager |
-| P15 (in this root) | User-stop reference model and 20 synthetic tests | Deployed kill switch or production control plane |
+| P15 (in this root) | User-stop reference model, USTOP scenario tests, and synthetic P12–P15 seam harness | Deployed kill switch, production control plane, or true cross-service integration |
 
 ## Cross-cutting security workstream
 
