@@ -119,3 +119,20 @@ The four skips remain UI tampering, accessibility, distributed stop/resume race,
 - A successful boolean dispatch check is not an execution reservation; an actual runtime needs an atomic authorization-and-dispatch boundary or a capability/gateway that can prevent TOCTOU races.
 - The synthetic budget model and P15 are separate; there is no integrated parent/child budget ledger or real scheduler/runtime enforcement.
 - Tests validate model invariants and deliberately malformed graph input, not deployed service behavior.
+
+
+## P12 SQLite idempotency harness (2026-11-02)
+
+Added a local synthetic SQLite tool-effect ledger to `Agent-Tool-Retry-Idempotency-Fixtures`. Its modeled side effect and operation record are stored in the same transaction. Tests:
+
+- Response loss after commit followed by replay after constructing a fresh service object.
+- Same key with different payload rejected as conflict.
+- Twelve concurrent threads using one key/payload produce one modeled effect and the same replay result.
+- Injected pre-commit crash rolls back the effect and ledger; retry then executes once.
+- Same key under different scope does not collide.
+
+Validation: [P12 fixture CI success](https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures/actions/runs/41511873192), **7 tests total (2 existing validator tests + 5 harness tests), success**. [Secret scan success](https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures/actions/runs/41511872896). CodeQL was still in progress at last poll.
+
+Commits: harness `63dc884`, tests `447e984`, documentation `570689c`, README `89fb6f3`.
+
+Limit: this is a same-SQLite-transaction simulation. It does not establish exactly-once behavior for external provider APIs whose side effect cannot participate in that transaction. It does not test multi-host failure, key expiry, auth isolation, provider reconciliation, or production durability. See [synthetic harness boundary notes](https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures/blob/main/docs/synthetic-idempotency-harness.md).
