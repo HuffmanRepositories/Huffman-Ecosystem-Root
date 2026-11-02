@@ -74,6 +74,22 @@ class UserStopReferenceTests(unittest.TestCase):
         self.assertEqual(c.tasks["task-two"].state, "running")
         self.assertIn("different stop request", second["residual_risks"][0])
 
+    def test_ustop_021_contains_deep_delegation_tree(self):
+        c = StopController([
+            Task("root", "tenant-a", "user-a"),
+            Task("child", "tenant-a", "delegated-1", parent_id="root"),
+            Task("grandchild", "tenant-a", "delegated-2", parent_id="child"),
+            Task("great-grandchild", "tenant-a", "delegated-3", parent_id="grandchild"),
+        ])
+        e = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="root",
+                   idempotency_key="deep-stop")
+        self.assertEqual(e["result"], "effective")
+        for task_id in ("root", "child", "grandchild", "great-grandchild"):
+            self.assertEqual(c.tasks[task_id].state, "stopped")
+            self.assertFalse(c.tasks[task_id].grant_active)
+            self.assertFalse(c.tasks[task_id].queued_work)
+            self.assertFalse(c.dispatch_allowed(task_id))
+
     @unittest.skip("Distributed concurrency/race testing requires a real multi-process integration harness.")
     def test_ustop_008_concurrent_stop_resume_race(self):
         self.fail("Not modeled by the in-memory reference implementation.")
