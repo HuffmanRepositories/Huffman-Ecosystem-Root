@@ -1,5 +1,6 @@
 """Synthetic P15 tests. These exercise only the in-memory reference model."""
 import unittest
+import threading
 
 from reference_model import StopController, Task
 
@@ -89,6 +90,35 @@ class UserStopReferenceTests(unittest.TestCase):
             self.assertFalse(c.tasks[task_id].grant_active)
             self.assertFalse(c.tasks[task_id].queued_work)
             self.assertFalse(c.dispatch_allowed(task_id))
+
+    def test_ustop_008_same_idempotency_key_race_is_serialized(self):
+        c = StopController([
+            Task("task-one", "tenant-a", "user-a"),
+            Task("task-two", "tenant-a", "user-a"),
+        ])
+        start = threading.Barrier(2)
+        outcomes = {}
+
+        def worker(task_id):
+            start.wait(timeout=3)
+            outcomes[task_id] = c.stop(
+                actor_id="user-a", tenant_id="tenant-a", task_id=task_id,
+                idempotency_key="race-key"
+            )
+
+        threads = [threading.Thread(target=worker, args=(task_id,))
+                   for task_id in ("task-one", "task-two")]
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join(timeout=5)
+        self.assertFalse(any(thread.is_alive() for thread in threads))
+        self.assertEqual(sorted(event["result"] for event in outcomes.values()),
+                         ["denied", "effective"])
+        stopped = [task_id for task_id, task in c.tasks.items()
+                   if task.state == "stopped"]
+        self.assertEqual(len(stopped), 1)
+        self.assertEqual(len(c.audit), 2)
 
     @unittest.skip("Distributed concurrency/race testing requires a real multi-process integration harness.")
     def test_ustop_008_concurrent_stop_resume_race(self):
