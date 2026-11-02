@@ -108,7 +108,7 @@ The current P15 workflow passes. Sixteen modeled scenario assertions pass; four 
 2. Apply the prepared GitHub descriptions, homepage URLs, and curated topic sets; pin the intended repositories from the account UI.
 3. Decide a versioning/release policy, create tags, publish per-repository releases, and produce checksummed release assets/manifests. This requires release-write capability not exposed in the current connector.
 4. Review branch protection/rulesets, Actions permissions, Dependabot/dependency alerts, secret-scanning settings, code-scanning alerts, and account security settings directly in GitHub; some of these settings were not accessible here.
-5. Run a full link check across READMEs, docs, workflow references, and external destinations; inspect all release notes and discussion content before final publication.
+5. Finish external-link checking across docs/workflow references and decide whether to enable GitHub Discussions (currently disabled across all 14 repositories); there is no discussion content to review unless enabled.
 6. For any future live agent deployment, implement the user stop control outside the model/runtime and test identity, credential, queue, child-agent, external integration, accessibility, race, recovery, and incident-response behavior end to end.
 7. Obtain qualified legal review of actual operations and data flows. The existing compliance note is issue-spotting, not a legal opinion or compliance certification.
 
