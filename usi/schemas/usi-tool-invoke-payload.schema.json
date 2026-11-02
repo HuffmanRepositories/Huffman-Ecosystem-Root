@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/blob/main/usi/schemas/usi-tool-invoke-payload.schema.json",
+  "title": "USI 0.1 Tool Invocation Payload (Draft)",
+  "type": "object",
+  "required": ["tool_id", "arguments"],
+  "properties": {
+    "tool_id": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)+$", "maxLength": 256},
+    "arguments": {"type": "object"},
+    "idempotency_key": {"type": "string", "minLength": 1, "maxLength": 256},
+    "authorization_context": {
+      "type": "object",
+      "properties": {"scope_ref": {"type": "string", "minLength": 1, "maxLength": 512}},
+      "required": ["scope_ref"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
