@@ -59,6 +59,21 @@ class UserStopReferenceTests(unittest.TestCase):
         second = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="same")
         self.assertEqual(first, second)
 
+    def test_ustop_007b_reused_key_for_different_target_is_denied(self):
+        c = StopController([
+            Task("task-one", "tenant-a", "user-a"),
+            Task("task-two", "tenant-a", "user-a"),
+        ])
+        first = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-one",
+                       idempotency_key="same-key")
+        second = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-two",
+                        idempotency_key="same-key")
+        self.assertEqual(first["result"], "effective")
+        self.assertEqual(second["result"], "denied")
+        self.assertEqual(second["task_id"], "task-two")
+        self.assertEqual(c.tasks["task-two"].state, "running")
+        self.assertIn("different stop request", second["residual_risks"][0])
+
     @unittest.skip("Distributed concurrency/race testing requires a real multi-process integration harness.")
     def test_ustop_008_concurrent_stop_resume_race(self):
         self.fail("Not modeled by the in-memory reference implementation.")
