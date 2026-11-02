@@ -26,12 +26,14 @@ This is a release-readiness assessment, not a claim that every file, dependency,
 | OAC, OAC fixtures, OARMI, P10–P14 | Fixture/validation CI, CodeQL, full-history Gitleaks | Successful recent runs inspected |
 | Ecosystem root | P15 reference tests, CodeQL, full-history Gitleaks | Successful runs on current reviewed commits |
 
-Root run evidence:
+Root run evidence (reviewed commit):
 - [P15 reference validation](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435384541)
 - [Full-history secret scan](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435384539)
 - [CodeQL static analysis](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435384945)
 
-These workflow results are useful evidence, not a guarantee of absence of vulnerabilities. They do not replace dependency review, manual code review, runtime penetration testing, GitHub account security review, branch/ruleset review, or verification of third-party integrations. Branch-protection reads returned HTTP 403 for all 12 public repositories, so protection/ruleset status could not be confirmed. Account-level security settings were also not inspectable. Discussions were not available through the connected review interface, and external-link checking was not exhaustive.
+Subsequent root documentation/router commits also triggered successful P15 and full-history secret-scan runs; the CodeQL run for the latest documentation-only commit was still processing at the last poll.
+
+These workflow results are useful evidence, not a guarantee of absence of vulnerabilities. They do not replace dependency review, manual code review, runtime penetration testing, GitHub account security review, branch/ruleset review, or verification of third-party integrations. Branch-protection reads returned HTTP 403 for all 12 public repositories, so protection/ruleset status could not be confirmed. Account-level security settings were also not inspectable. Discussions were not available through the connected review interface, and external-link checking was not exhaustive. The private Blueprint workspace now has validation and CodeQL workflows, but their run results could not be verified through the available private-repository read path.
 
 ## Releases and versioning
 
@@ -49,7 +51,7 @@ Live repository metadata showed:
 - Homepage fields are empty across the public repositories checked.
 - Prepared, professionally worded descriptions and topic recommendations are in [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md), but they have **not** been applied to GitHub About fields.
 
-The profile README has a distinct community-facing identity; the root, mission hub, and guide serve separate portfolio, coordination, and onboarding roles. Preserve those distinct purposes rather than forcing identical READMEs.
+The profile README has a distinct community-facing identity; the root, mission hub, and guide serve separate portfolio, coordination, and onboarding roles. Preserve those distinct purposes rather than forcing identical READMEs. All 11 public project READMEs were verified to link back to the canonical root directory (the root README is self-referential by design). A root-level SECURITY.md policy is now present in all 12 public repositories; the two private workspaces also received security and governance policies.
 
 ## Licensing and attribution
 
