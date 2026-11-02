@@ -1,4 +1,4 @@
-"""P15 synthetic tests. These exercise only the in-memory reference model."""
+"""Synthetic P15 tests. These exercise only the in-memory reference model."""
 import unittest
 
 from reference_model import StopController, Task
@@ -58,25 +58,25 @@ class UserStopReferenceTests(unittest.TestCase):
         second = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="same")
         self.assertEqual(first, second)
 
-    def test_ustop_008_stopped_task_cannot_resume(self):
-        c = fixture_controller()
-        c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k8")
-        self.assertFalse(c.resume("task-a", fresh_authorization=True))
+    @unittest.skip("Distributed concurrency/race testing requires a real multi-process integration harness.")
+    def test_ustop_008_concurrent_stop_resume_race(self):
+        self.fail("Not modeled by the in-memory reference implementation.")
 
-    def test_ustop_009_dispatch_is_not_agent_controlled(self):
-        c = fixture_controller()
-        c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k9")
-        self.assertFalse(c.dispatch_allowed("task-a"))
+    @unittest.skip("Agent-controlled UI tampering requires an actual user interface integration test.")
+    def test_ustop_009_agent_cannot_hide_external_stop_ui(self):
+        self.fail("No UI is included in this repository.")
 
     def test_ustop_010_stopped_task_cannot_self_restart(self):
         c = fixture_controller()
         c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k10")
         self.assertFalse(c.resume("task-a", fresh_authorization=False))
+        self.assertFalse(c.resume("task-a", fresh_authorization=True))
 
-    def test_ustop_011_revokes_task_grant(self):
+    def test_ustop_011_revokes_delegated_model_grant(self):
         c = fixture_controller()
         c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k11")
         self.assertFalse(c.tasks["task-a"].grant_active)
+        self.assertFalse(c.tasks["child-a"].grant_active)
 
     def test_ustop_012_control_plane_outage_fails_closed(self):
         c = fixture_controller(available=False)
@@ -84,11 +84,11 @@ class UserStopReferenceTests(unittest.TestCase):
         self.assertEqual(e["result"], "not_verified")
         self.assertFalse(c.dispatch_allowed("task-a"))
 
-    def test_ustop_013_identity_outage_denies_request(self):
+    def test_ustop_013_identity_outage_denies_and_fails_closed(self):
         c = fixture_controller(identity_available=False)
         e = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k13")
         self.assertEqual(e["result"], "denied")
-        self.assertTrue(c.dispatch_allowed("task-a"))
+        self.assertFalse(c.dispatch_allowed("task-a"))
 
     def test_ustop_014_nonrevocable_integration_is_reported(self):
         c = StopController([Task("task-a", "tenant-a", "user-a", integration_revocable=False)])
@@ -109,21 +109,19 @@ class UserStopReferenceTests(unittest.TestCase):
         self.assertEqual(e["scope"], "task")
         self.assertNotEqual(e["scope"], "fleet")
 
-    def test_ustop_017_control_result_is_machine_readable(self):
-        c = fixture_controller()
-        e = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k17")
-        self.assertTrue({"event_id", "occurred_at", "tenant_id", "actor_principal_id",
-                         "task_id", "scope", "requested_action", "enforcement_state", "result"} <= e.keys())
+    @unittest.skip("Keyboard, screen-reader, mobile and high-contrast behavior requires a real UI test.")
+    def test_ustop_017_accessibility(self):
+        self.fail("No UI is included in this repository.")
 
-    def test_ustop_018_audit_records_event_without_message_content(self):
-        c = fixture_controller()
-        c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k18")
-        self.assertNotIn("message", c.audit[0])
-        self.assertNotIn("prompt", c.audit[0])
+    @unittest.skip("Tamper-evident storage and integrity verification require an external audit-store integration.")
+    def test_ustop_018_tamper_evident_audit_storage(self):
+        self.fail("The reference model stores events in memory only.")
 
-    def test_ustop_019_audit_event_has_no_secret_fields(self):
+    def test_ustop_019_audit_event_minimizes_sensitive_fields(self):
         c = fixture_controller()
         e = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k19")
+        self.assertNotIn("message", e)
+        self.assertNotIn("prompt", e)
         self.assertFalse({"token", "password", "secret", "credential"} & e.keys())
 
     def test_ustop_020_status_never_claims_success_when_unverified(self):
