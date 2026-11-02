@@ -5,6 +5,7 @@ credential revoker, queue controller, or deployed emergency-stop service.
 """
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import dataclass
 import threading
 from datetime import datetime, timezone
@@ -51,17 +52,22 @@ class StopController:
         return found
 
     def dispatch_allowed(self, task_id: str) -> bool:
-        """Fail closed if control state is unavailable or any ancestor is stopped."""
-        if not self.available or not self.identity_available or task_id not in self.tasks:
-            return False
-        task = self.tasks[task_id]
-        seen = set()
-        while task is not None:
-            if task.task_id in seen or task.state != "running" or not task.grant_active:
+        """Fail closed if control state is unavailable or any ancestor is stopped.
+
+        The lock makes this model's authorization snapshot consistent with its
+        stop transition. It does not atomically reserve or execute real work.
+        """
+        with self._stop_lock:
+            if not self.available or not self.identity_available or task_id not in self.tasks:
                 return False
-            seen.add(task.task_id)
-            task = self.tasks.get(task.parent_id) if task.parent_id else None
-        return True
+            task = self.tasks[task_id]
+            seen = set()
+            while task is not None:
+                if task.task_id in seen or task.state != "running" or not task.grant_active:
+                    return False
+                seen.add(task.task_id)
+                task = self.tasks.get(task.parent_id) if task.parent_id else None
+            return True
 
     def stop(self, *, actor_id: str, tenant_id: str, task_id: str,
              idempotency_key: str, account_wide: bool = False) -> dict:
@@ -78,7 +84,8 @@ class StopController:
         if cached is not None:
             cached_signature, cached_event = cached
             if cached_signature == request_signature:
-                return cached_event
+                # Never expose the mutable object held in the idempotency cache.
+                return deepcopy(cached_event)
             return self._event(
                 task_id, tenant_id, actor_id, "task", "received", "denied",
                 ["Idempotency key was already used for a different stop request."]
@@ -131,7 +138,8 @@ class StopController:
         state = "complete_with_limitations" if residual else "work_contained"
         result = "partial" if residual else "effective"
         event = self._event(task_id, tenant_id, actor_id, scope, state, result, residual)
-        self._idempotency[cache_key] = (request_signature, event)
+        # Keep an independent cache copy so callers cannot mutate replay results.
+        self._idempotency[cache_key] = (request_signature, deepcopy(event))
         return event
 
     def _event(self, task_id: str, tenant_id: str, actor_id: str, scope: str,
@@ -148,14 +156,16 @@ class StopController:
             "result": result,
             "residual_risks": list(residual),
         }
-        self.audit.append(event)
+        # Audit and caller receive independent copies of this mutable dictionary.
+        self.audit.append(deepcopy(event))
         return event
 
     def resume(self, task_id: str, *, fresh_authorization: bool) -> bool:
-        task = self.tasks.get(task_id)
-        if task is None or not self.available or not fresh_authorization:
-            return False
-        if task.state != "paused":
-            return False
-        task.state = "running"
-        return True
+        with self._stop_lock:
+            task = self.tasks.get(task_id)
+            if task is None or not self.available or not fresh_authorization:
+                return False
+            if task.state != "paused":
+                return False
+            task.state = "running"
+            return True
