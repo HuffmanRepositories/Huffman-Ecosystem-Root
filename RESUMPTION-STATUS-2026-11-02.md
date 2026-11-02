@@ -115,3 +115,19 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 - License decisions for public repositories without LICENSE files require maintainer/legal approval; no license was added by assumption.
 - Release tags, release policy, signing/provenance, and GitHub Releases are not established.
 - Disaster recovery restore, distributed concurrency/TOCTOU, real credential revocation, actual queue/provider stop propagation, and L3/L4/L5 production integration tests remain unexecuted. P15 is a reference model; P12–P14 are synthetic fixtures/models.
+
+
+## Post-README alignment verification — 2026-11-02 (latest poll)
+
+### README commits and workflow results
+- Profile README commit: `6377d1811c9b77e52262d7372fb7131654443de4`; [full-history secret scan passed](https://github.com/HuffmanRepositories/HuffmanRepositories/actions/runs/41521136329).
+- Mission hub README commit: `98caff91d983f8df7b65fa08fe7bd5d91b2bcb16`; [secret scan passed](https://github.com/HuffmanRepositories/Open-Source-AI-Independence/actions/runs/41521154141).
+- Guide README commit: `cba8a9182016930d86057850617722eccd58314d`; [secret scan passed](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Guide/actions/runs/41521162761).
+- Root README commit: `385b1ebb694e205b26afa841d96be5390fcddfc7`; [secret scan](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41521147832) and [CodeQL](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41521147806) passed. P15 reference validation run [41521147705](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41521147705) was still in progress at the latest poll.
+- Blueprint README commit: `2f9a8898141afd651efaedd685f400d8171d24f2`; [secret scan](https://github.com/HuffmanRepositories/HuffmanRepositories-Blueprint/actions/runs/41521222539) and [contract validation](https://github.com/HuffmanRepositories/HuffmanRepositories-Blueprint/actions/runs/41521222415) passed. CodeQL [41521222410](https://github.com/HuffmanRepositories/HuffmanRepositories-Blueprint/actions/runs/41521222410) was still in progress at the latest poll.
+- Latest configured fixture/CodeQL/secret-scan checks were reviewed for technical repos. All previously completed main-branch validation/security runs in the audit passed; Root P15 and Blueprint CodeQL are the only known runs still pending in this snapshot.
+
+### Portfolio file inventory check
+- Rechecked root-level trees across all 14 repositories. Every repo exposes README.md and AGENTS.md, including the private workspaces; project-specific files and directories are present.
+- The public Root catalog continues to exclude private Blueprint and Archive Test Lab from public routes.
+- This tree check is not a full content-by-content review of every file or a proof of all links/runtime behavior.
