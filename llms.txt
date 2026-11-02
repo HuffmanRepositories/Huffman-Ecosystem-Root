@@ -1,0 +1,13 @@
+# HuffmanRepositories Ecosystem
+> Public entry point and navigation directory, created by Robert Huffman.
+
+- README.md — overview and project links
+- START-HERE.md — progressive human onboarding
+- AGENTS.md — agent preflight and safety rules
+- ecosystem.json — machine-readable public project registry
+- AGENT-ROUTER.json — intent-to-repository routing
+- PROJECT-CATALOG.md — project purposes and boundaries
+- USE-CASE-ROUTER.md — task-based selection
+- GLOSSARY.md — shared terms and acronyms
+
+Do not ingest all repositories by default. Read the selected project's own entry instructions. Public visibility is not authorization to test external systems. Fixture validation is not production conformance or security certification. Preserve provenance, licenses, and attribution.

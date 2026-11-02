@@ -1,0 +1,3 @@
+# Language Port Template
+
+State the language, purpose, users, and use case. Link the exact canonical specification and version. List supported, unsupported, transformed, and lossy behavior. Provide reproducible build/use instructions. Consume shared fixtures and explain exactly what tests prove. Document dependencies, security, maintainers, provenance, and license compatibility. Do not claim official support without maintainer approval.

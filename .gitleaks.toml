@@ -1,0 +1,11 @@
+# Gitleaks allowlist: narrowly scoped documented false positive.
+# The finding is in historical portfolio-status prose, not a credential.
+# Scope requires the exact historical commit, this exact document path, and
+# the specific phrase; only the generic-api-key rule is affected.
+[[allowlists]]
+description = "Historical false-positive in status prose (commit/path/phrase constrained)"
+condition = "AND"
+commits = ["aa27337eb1e51a7117d7cb188bf03470ad18feb4"]
+paths = ['''^FAILURE-TEST-EXECUTION-LOG-2026-11-02\.md$''']
+regexTarget = "line"
+regexes = ['''successful secret scans, validation/fixture CI''']
