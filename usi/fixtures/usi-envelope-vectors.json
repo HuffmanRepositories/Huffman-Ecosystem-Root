@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "USI 0.1 draft golden vectors. These validate envelope shape only; operation semantics and security need separate tests.",
+  "valid": [
+    {
+      "name": "capabilities-request-minimal",
+      "message": { "spec": "usi/0.1", "operation": "usi.capabilities", "request_id": "cap-01", "payload": {} }
+    },
+    {
+      "name": "tool-invoke-with-empty-args",
+      "message": { "spec": "usi/0.1", "operation": "usi.tool.invoke", "request_id": "tool-01", "payload": { "tool_id": "demo.echo", "arguments": {} } }
+    },
+    {
+      "name": "localized-result",
+      "message": { "spec": "usi/0.1", "operation": "usi.result", "request_id": "result-01", "locale": "en", "payload": { "request_id": "tool-01", "status": "success", "result": { "text": "ok" }, "error": null } }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "missing-request-id",
+      "message": { "spec": "usi/0.1", "operation": "usi.capabilities", "payload": {} },
+      "reason": "request_id is required"
+    },
+    {
+      "name": "wrong-spec-version",
+      "message": { "spec": "usi/0.2", "operation": "usi.capabilities", "request_id": "bad-01", "payload": {} },
+      "reason": "spec must equal usi/0.1"
+    },
+    {
+      "name": "unknown-envelope-property",
+      "message": { "spec": "usi/0.1", "operation": "usi.capabilities", "request_id": "bad-02", "debug": true },
+      "reason": "additional envelope properties are forbidden"
+    },
+    {
+      "name": "invalid-operation-id",
+      "message": { "spec": "usi/0.1", "operation": "USI.Capabilities", "request_id": "bad-03" },
+      "reason": "operation identifier pattern is lowercase and namespaced"
+    }
+  ]
+}
