@@ -13,9 +13,10 @@
 | [P12](https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures) | Retry and uncertain outcomes | Exactly-once guarantee |
 | [P13](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures) | Delegated authority boundaries | Authorization engine |
 | [P14](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures) | Delegated budget scenarios | Production budget manager |
+| P15 (in this root) | User-stop reference model and 20 synthetic tests | Deployed kill switch or production control plane |
 
 ## Cross-cutting security workstream
 
-The [User-Controlled Emergency Stop specification](USER-CONTROLLED-KILLSWITCH.md) defines the user-facing stop contract. The [verification plan](USER-KILLSWITCH-TEST-PLAN.md) proposes candidate P15 synthetic fixtures. These are cross-cutting requirements and test plans, not a deployed kill-switch product or a newly created repository. Operator containment remains defined in [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md).
+The [User-Controlled Emergency Stop specification](USER-CONTROLLED-KILLSWITCH.md) defines the user-facing stop contract. Its [verification plan](USER-KILLSWITCH-TEST-PLAN.md) is now accompanied by an executable [P15 in-memory reference model and test suite](p15/README.md). The tests are synthetic and do not establish real identity, credential, queue, integration, UI, or runtime enforcement. Operator containment remains defined in [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md).
 
-The mission hub coordinates direction; the Ecosystem Guide teaches navigation; OAC defines mapping methodology; OAC Fixtures provides reproducible examples; OARMI handles usage representation; P10–P14 address distinct agent reliability topics. Private workspaces are excluded.
+The mission hub coordinates direction; the Ecosystem Guide teaches navigation; OAC defines mapping methodology; OAC Fixtures provides reproducible examples; OARMI handles usage representation; P10–P15 address distinct agent reliability topics. Private workspaces are excluded.
