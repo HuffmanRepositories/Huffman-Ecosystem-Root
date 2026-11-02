@@ -145,7 +145,7 @@ Treat the current state as a **validated public research/fixture baseline with r
 
 The earlier snapshot above is superseded by this continuation for current PR/release/issue status.
 
-- Current observed PR total: **30 closed/merged, 0 open** (22 earlier baseline plus eight PRs merged during this continuation, including this root audit update PR #1).
+- Current observed PR total: **31 closed/merged, 0 open** (22 earlier baseline plus nine PRs merged during this continuation, including root audit PR #1 and P14 contribution guide PR #6).
 - **0 GitHub Releases** were returned across all 14 repositories; this is not a statement that Git tags are absent.
 - **0 open issues** were returned across all 14 repositories.
 - Discussions could not be audited using the connected GitHub action surface and remain unverified.
