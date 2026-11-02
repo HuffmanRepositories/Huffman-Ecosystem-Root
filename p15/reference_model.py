@@ -81,13 +81,22 @@ class StopController:
                                ["Task ownership or tenant scope did not authorize this request."])
 
         if account_wide:
-            affected = [t for t in self.tasks.values()
-                        if t.tenant_id == tenant_id and t.owner_id == actor_id]
+            roots = [t for t in self.tasks.values()
+                     if t.tenant_id == tenant_id and t.owner_id == actor_id]
+            by_id = {}
+            for root in roots:
+                by_id[root.task_id] = root
+                for child in self._descendants(root.task_id):
+                    if child.tenant_id == tenant_id:
+                        by_id[child.task_id] = child
+            affected = list(by_id.values())
             scope = "user_authority_graph"
         else:
-            affected = [target] + self._descendants(task_id)
-            affected = [t for t in affected
-                        if t.tenant_id == tenant_id and t.owner_id == actor_id]
+            # Descendants may run under delegated service identities. Their
+            # inclusion follows the verified parent relationship, not equality
+            # of their local principal ID with the human actor.
+            affected = [t for t in [target] + self._descendants(task_id)
+                        if t.tenant_id == tenant_id]
             scope = "task"
 
         residual = []
