@@ -1,13 +1,14 @@
 # User Emergency Stop — Verification and Fixture Plan
 
-**Status:** Draft test plan; no production implementation implied  
-**Maintainer:** Robert Huffman (MrCakes931)  
-**Prepared:** 2026-11-02  
-**Normative target:** [User-Controlled Emergency Stop Specification](USER-CONTROLLED-KILLSWITCH.md)
+**Status:** Draft requirements plus executable synthetic reference model  \
+**Maintainer:** Robert Huffman (MrCakes931)  \
+**Prepared:** 2026-11-02  \
+**Normative target:** [User-Controlled Emergency Stop Specification](USER-CONTROLLED-KILLSWITCH.md)  \
+**Executable companion:** [P15 reference fixtures and tests](p15/README.md)
 
 ## Objective
 
-Build a synthetic, implementation-neutral test suite proving that a user's stop request is independently enforced, correctly scoped, propagated through delegated work, and honestly reported.
+Define and test a synthetic, implementation-neutral model for user stop semantics: authority boundaries, independent dispatch denial, descendant containment, delegated grant revocation, idempotency, fail-closed behavior, and truthful reporting of residual effects.
 
 ## Test fixture families
 
@@ -34,29 +35,25 @@ Build a synthetic, implementation-neutral test suite proving that a user's stop 
 | USTOP-019 | Privacy minimization | Audit records avoid unnecessary message content and unrelated user data. |
 | USTOP-020 | Stop status truthfulness | "Stopped" is never returned before defined enforcement and verification conditions are met. |
 
+## Executable reference model
+
+The [P15 package](p15/README.md) implements a deterministic in-memory model and unit tests mapped to USTOP-001 through USTOP-020. Run:
+
+```bash
+python -m unittest discover -s p15 -p 'test_*.py' -v
+```
+
+The tests exercise synthetic state only. Accessibility, distributed concurrency, real credential invalidation, actual queue/scheduler cancellation, third-party integration revocation, network isolation, and production UI behavior remain outside the model and require separate integration testing. The model is not a deployable service.
+
 ## Suggested synthetic event model
 
-Fixtures should use fake identifiers only. Each event should carry:
-- event_id
-- occurred_at (UTC timestamp)
-- tenant_id (synthetic)
-- actor_principal_id (synthetic)
-- task_id and parent_task_id (synthetic or null)
-- stop_request_id / idempotency_key
-- scope (task, user-authority-graph, integration)
-- requested_action (stop, pause, revoke, disconnect, resume)
-- enforcement_state
-- credential_revocation_state
-- descendant_containment_state
-- queued_work_state
-- external_effects_state
-- result and residual_risks
+Fixtures use fake identifiers only. The machine-readable [event schema](USER-STOP-EVENT-SCHEMA.json) defines the currently required fields. Future revisions may add parent-task, idempotency, credential-revocation, descendant-containment, queue, and external-effect fields through a versioned schema change.
 
 Never include real credentials, tokens, personal data, biometric samples, or production identifiers in fixtures.
 
 ## Pass/fail policy
 
-- Each invariant must have a deterministic assertion and a documented expected result.
+- Each modeled invariant must have a deterministic assertion and documented expected result.
 - A missing, stale, contradictory, or unverifiable status is not a pass.
 - A timeout is not proof that work stopped.
 - A parent acknowledgment is not proof that child workers stopped.
@@ -67,6 +64,6 @@ Never include real credentials, tokens, personal data, biometric samples, or pro
 
 ## Roadmap relationship
 
-This plan is a proposed new workstream (candidate P15), not an assertion that a new repository has already been created. First stabilize the requirements and schema in the ecosystem root, then decide whether a dedicated fixture repository is warranted. Keep user-stop tests distinct from operator/fleet containment tests while sharing common event and delegation models.
+P15 remains a reference fixture package within the ecosystem root; no separate repository or production runtime has been created. Keep user-stop tests distinct from operator/fleet containment tests while sharing common event and delegation models.
 
 **Attribution:** Original plan authored for the HuffmanRepositories ecosystem by Robert Huffman (MrCakes931).
