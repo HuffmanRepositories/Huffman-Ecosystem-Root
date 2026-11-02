@@ -14,7 +14,7 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 
 ## Start here
 0. Portfolio alignment: [portfolio consolidation plan](PORTFOLIO-CONSOLIDATION-PLAN.md), [ecosystem map](ECOSYSTEM-MAP.md), and [project catalog](PROJECT-CATALOG.md).
-1. Current ecosystem status: [Resumption status (2026-11-02)](RESUMPTION-STATUS-2026-11-02.md), [failure-test execution log](FAILURE-TEST-EXECUTION-LOG-2026-11-02.md), [system test matrix and missing-details review](ECOSYSTEM-SYSTEM-TEST-MATRIX.md), [Release-readiness review](RELEASE-READINESS-REVIEW.md), [release package plan](RELEASE-PACKAGE-PLAN.md), and [security policy](SECURITY.md).
+1. **Final owner handoff:** [step-by-step owner checklist](FINAL-OWNER-HANDOFF-CHECKLIST.md).\n2. Current ecosystem status: [Resumption status (2026-11-02)](RESUMPTION-STATUS-2026-11-02.md), [failure-test execution log](FAILURE-TEST-EXECUTION-LOG-2026-11-02.md), [system test matrix and missing-details review](ECOSYSTEM-SYSTEM-TEST-MATRIX.md), [Release-readiness review](RELEASE-READINESS-REVIEW.md), [release package plan](RELEASE-PACKAGE-PLAN.md), and [security policy](SECURITY.md).
 2. Humans: [START-HERE.md](START-HERE.md).
 3. AI agents: [AGENTS.md](AGENTS.md), then parse [ecosystem.json](ecosystem.json) and [AGENT-ROUTER.json](AGENT-ROUTER.json).
 4. Project selection: [PROJECT-CATALOG.md](PROJECT-CATALOG.md) and [USE-CASE-ROUTER.md](USE-CASE-ROUTER.md).
