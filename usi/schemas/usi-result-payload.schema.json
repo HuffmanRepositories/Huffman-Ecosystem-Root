@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/blob/main/usi/schemas/usi-result-payload.schema.json",
+  "title": "USI 0.1 Result Payload (Draft)",
+  "type": "object",
+  "required": ["request_id", "status", "result", "error"],
+  "properties": {
+    "request_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "status": {"enum": ["success", "failure", "partial"]},
+    "result": {},
+    "error": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["code", "retryable"],
+          "properties": {
+            "code": {"type": "string", "pattern": "^[a-z][a-z0-9_.]{0,127}$"},
+            "message": {
+              "type": "object",
+              "required": ["text", "language"],
+              "properties": {
+                "text": {"type": "string", "maxLength": 4096},
+                "language": {"type": "string", "minLength": 2, "maxLength": 64}
+              },
+              "additionalProperties": false
+            },
+            "retryable": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}
