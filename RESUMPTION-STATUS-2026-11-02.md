@@ -67,6 +67,7 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 - P12 PR #3, P13 PR #4, and P14 PR #4: corrected literal escaped-newline formatting in experimental README sections.
 - P12 PR #4, P13 PR #5, and P14 PR #5: added conditional companion routing to each project's README and AGENTS.md, including P12/P13/P14/P15 and OARMI where applicable. These links explicitly do not imply runtime dependencies or production integrations.
 - P14 PR #6 added the missing CONTRIBUTING.md referenced by README and AGENTS; contribution guide links were checked.
+- Blueprint PR #5 removed unused security-events:write after switching CodeQL to upload:never; PR #6 updated the SARIF artifact action to v7.0.2 (verified upstream SHA). P14 PR #7 tightened the synthetic budget model to reject float/bool amounts and added regression tests.
 
 ### Branch governance and security visibility
 - The branch API reports main unprotected for all 14 repositories.
