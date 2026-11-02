@@ -11,15 +11,16 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 > **Portfolio maturity:** Open research, documentation, and synthetic test fixtures. This repository is the canonical directory and coordination front door—not a unified production agent runtime. Individual projects define their own maturity and validation limits; no ecosystem-wide certification or production release is claimed.
 
 ## Start here
-0. Current ecosystem status: [Resumption status (2026-11-02)](RESUMPTION-STATUS-2026-11-02.md), [failure-test execution log](FAILURE-TEST-EXECUTION-LOG-2026-11-02.md), [system test matrix and missing-details review](ECOSYSTEM-SYSTEM-TEST-MATRIX.md), [Release-readiness review](RELEASE-READINESS-REVIEW.md), [release package plan](RELEASE-PACKAGE-PLAN.md), and [security policy](SECURITY.md).
-1. Humans: [START-HERE.md](START-HERE.md).
-2. AI agents: [AGENTS.md](AGENTS.md), then parse [ecosystem.json](ecosystem.json) and [AGENT-ROUTER.json](AGENT-ROUTER.json).
-3. Project selection: [PROJECT-CATALOG.md](PROJECT-CATALOG.md) and [USE-CASE-ROUTER.md](USE-CASE-ROUTER.md).
-4. Definitions: [GLOSSARY.md](GLOSSARY.md).
-5. Contributions, translations, and ports: [CONTRIBUTING.md](CONTRIBUTING.md), [LOCALIZATION.md](LOCALIZATION.md), [LANGUAGE-PORTS.md](LANGUAGE-PORTS.md).
-6. Safety engineering: [USER-CONTROLLED-KILLSWITCH.md](USER-CONTROLLED-KILLSWITCH.md), [USER-KILLSWITCH-TEST-PLAN.md](USER-KILLSWITCH-TEST-PLAN.md), [P15 reference fixtures and tests](p15/README.md), [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md), [ROGUE-AGENT-INCIDENT-RESPONSE.md](ROGUE-AGENT-INCIDENT-RESPONSE.md), [SAFE-USE-AND-SECURITY.md](SAFE-USE-AND-SECURITY.md), and [catastrophic failure / disaster recovery exercise](DISASTER-RECOVERY-AND-CATASTROPHIC-FAILURE-EXERCISE.md).
-7. Legal and compliance issue-spotting: [COMPLIANCE-AND-LEGAL-REVIEW.md](COMPLIANCE-AND-LEGAL-REVIEW.md). This is not legal advice or a compliance certification.
-8. Repository descriptions and topics: [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md).
+0. Portfolio alignment: [portfolio consolidation plan](PORTFOLIO-CONSOLIDATION-PLAN.md), [ecosystem map](ECOSYSTEM-MAP.md), and [project catalog](PROJECT-CATALOG.md).
+1. Current ecosystem status: [Resumption status (2026-11-02)](RESUMPTION-STATUS-2026-11-02.md), [failure-test execution log](FAILURE-TEST-EXECUTION-LOG-2026-11-02.md), [system test matrix and missing-details review](ECOSYSTEM-SYSTEM-TEST-MATRIX.md), [Release-readiness review](RELEASE-READINESS-REVIEW.md), [release package plan](RELEASE-PACKAGE-PLAN.md), and [security policy](SECURITY.md).
+2. Humans: [START-HERE.md](START-HERE.md).
+3. AI agents: [AGENTS.md](AGENTS.md), then parse [ecosystem.json](ecosystem.json) and [AGENT-ROUTER.json](AGENT-ROUTER.json).
+4. Project selection: [PROJECT-CATALOG.md](PROJECT-CATALOG.md) and [USE-CASE-ROUTER.md](USE-CASE-ROUTER.md).
+5. Definitions: [GLOSSARY.md](GLOSSARY.md).
+6. Contributions, translations, and ports: [CONTRIBUTING.md](CONTRIBUTING.md), [LOCALIZATION.md](LOCALIZATION.md), [LANGUAGE-PORTS.md](LANGUAGE-PORTS.md).
+7. Safety engineering: [USER-CONTROLLED-KILLSWITCH.md](USER-CONTROLLED-KILLSWITCH.md), [USER-KILLSWITCH-TEST-PLAN.md](USER-KILLSWITCH-TEST-PLAN.md), [P15 reference fixtures and tests](p15/README.md), [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md), [ROGUE-AGENT-INCIDENT-RESPONSE.md](ROGUE-AGENT-INCIDENT-RESPONSE.md), [SAFE-USE-AND-SECURITY.md](SAFE-USE-AND-SECURITY.md), and [catastrophic failure / disaster recovery exercise](DISASTER-RECOVERY-AND-CATASTROPHIC-FAILURE-EXERCISE.md).
+8. Legal and compliance issue-spotting: [COMPLIANCE-AND-LEGAL-REVIEW.md](COMPLIANCE-AND-LEGAL-REVIEW.md). This is not legal advice or a compliance certification.
+9. Repository descriptions and topics: [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md).
 
 ## Public projects
 - [HuffmanRepositories](https://github.com/HuffmanRepositories/HuffmanRepositories) — portfolio discovery.
