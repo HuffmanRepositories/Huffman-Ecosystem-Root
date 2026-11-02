@@ -4,6 +4,9 @@ This folder contains early, review-only artifacts for Universal Semantic Interop
 
 - [USI 0.1 semantic contract](USI-0.1-SEMANTIC-CONTRACT.md)
 - [Draft message-envelope JSON Schema](schemas/usi-envelope.schema.json)
+- [Tool invocation payload schema](schemas/usi-tool-invoke-payload.schema.json)
+- [Result payload schema](schemas/usi-result-payload.schema.json)
+- [Stop request payload schema](schemas/usi-stop-payload.schema.json)
 
 ## Current state
 
