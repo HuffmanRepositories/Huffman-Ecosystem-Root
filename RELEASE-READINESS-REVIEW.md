@@ -14,9 +14,13 @@ This is a release-readiness assessment, not a claim that every file, dependency,
 
 - 14 repositories visible: 12 public and 2 private.
 - All 14 report `main` as the default branch and none is marked archived.
-- Account-wide open pull-request search: no open PRs returned.
-- Account-wide open-issue search: no open issues returned.
+- Account-wide all-state PR search returned 22 pull requests; all 22 were confirmed closed and merged (19 GitHub Actions dependency updates and 3 substantive documentation/semantic-validation changes).
+- No open PRs or open issues were returned by account-wide searches.
 - Public directory lists the 11 public project repositories other than the root directory itself; private workspaces are intentionally excluded.
+
+## Pull-request review
+
+All 22 PRs returned by the account-wide search were confirmed merged. The 19 dependency PRs updated pinned GitHub Actions versions; the current public repositories' relevant CI, CodeQL, and full-history secret-scan runs inspected after merge are successful. The three substantive PRs were reviewed at diff level: the private Blueprint portfolio audit addendum, P13 delegation semantic validation, and P14 budget semantic validation. P13/P14 semantic validators are now part of their respective CI workflows. No open PRs required merging or closure.
 
 ## CI and security evidence inspected
 
