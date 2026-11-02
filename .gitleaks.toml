@@ -5,7 +5,6 @@
 [[allowlists]]
 description = "Historical false-positive in status prose (commit/path/phrase constrained)"
 condition = "AND"
-targetRules = ["generic-api-key"]
 commits = ["aa27337eb1e51a7117d7cb188bf03470ad18feb4"]
 paths = ['''^FAILURE-TEST-EXECUTION-LOG-2026-11-02\.md$''']
 regexTarget = "line"
