@@ -115,3 +115,7 @@ This profile is for defensive containment and resilience. It does not authorize 
 A system may claim alignment with this draft profile only when it publishes its implementation scope, tested scenarios, known limitations, and evidence. Do not use "certified", "compliant", or "guaranteed safe" based solely on this document.
 
 **Attribution:** Original profile authored for the HuffmanRepositories ecosystem by Robert Huffman (MrCakes931). Contributions and third-party sources must be separately attributed.
+
+## User-level stop integration
+
+This operator containment profile is complemented by [USER-CONTROLLED-KILLSWITCH.md](USER-CONTROLLED-KILLSWITCH.md) and [USER-KILLSWITCH-TEST-PLAN.md](USER-KILLSWITCH-TEST-PLAN.md). The user stop is a distinct authority plane: it stops tasks and delegated capabilities operating under the authenticated user's authority, without granting cross-user or fleet-wide authority. Implementations must distinguish user task stop, pause, access revocation, account-scoped stop-all, and operator/fleet containment. The user stop must be enforced outside the agent, independently verified, and must not be undone by agent-controlled state.
