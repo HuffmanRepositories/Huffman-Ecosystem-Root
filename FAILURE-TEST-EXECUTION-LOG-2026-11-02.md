@@ -59,3 +59,11 @@ A read-only review of recent workflow runs across the 12 public repositories sho
 5. Test backup restoration from independently verified snapshots.
 6. Poll CodeQL for the latest commit and record the final result.
 7. Keep production deployment and release claims blocked until integration evidence exists.
+
+
+## Secret-scan triage
+- Gitleaks reported one `generic-api-key` match in a historical portfolio-status sentence at commit `aa27337eb1e51a7117d7cb188bf03470ad18feb4`.
+- Redacted scan output identified ordinary prose, not a credential/token value. The current wording was revised to avoid repeating the triggering phrase.
+- A narrowly scoped Gitleaks allowlist now requires the exact historical commit, exact file path, and matching line text; it does not disable the detector repository-wide.
+- [Full-history secret scan after allowlist correction — passed](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41503704969).
+- The earlier scan failures were configuration/false-positive triage, not evidence that a live credential was exposed. Keep the allowlist under review and remove it if the prose/fingerprint changes.
