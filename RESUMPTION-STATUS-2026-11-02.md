@@ -49,3 +49,31 @@ This does not mean there are no closed PRs, workflow failures, security alerts, 
 
 ## Resumption recommendation
 Begin with BAD-05 (rogue agent / descendant containment), BAD-06 (stop service unavailable), BAD-07 (stale authorization / partition), and BAD-08 (runaway delegation) in a local, isolated, synthetic harness. Do not use live credentials or production services. Record expected versus actual outcomes, evidence, severity, remediation, and retest status.
+
+
+## Portfolio audit continuation — 2026-11-02
+
+This section supersedes earlier partial PR/CI snapshots above where the observations differ.
+
+### PR and repository state
+- Rechecked the 14-repository inventory: 12 public, 2 private; all default to main; none archived.
+- Earlier PR baseline: 22 closed/merged. Seven further PRs were opened and merged during this continuation: Blueprint #4; P12 #3 and #4; P13 #4 and #5; P14 #4 and #5. Current observed total: **29 closed/merged PRs, 0 open PRs**.
+- GitHub Releases API returned **0 published releases across all 14 repositories**. This does not imply there are no Git tags; tag listing was not fully reconciled.
+- Open issue queries returned **0 open issues across all 14 repositories**.
+- Discussion threads remain **unverified**: the connected GitHub interface did not expose a supported Discussions listing/read action.
+
+### Changes merged during this continuation
+- Blueprint PR #4: CodeQL now runs analysis without unsupported private Code Scanning upload and retains SARIF as a 14-day Actions artifact. Merge commit: 6971b7dfba62b43a3d45ac664738e14a505e85d0. CodeQL workflow [run 41516187519](https://github.com/HuffmanRepositories/HuffmanRepositories-Blueprint/actions/runs/41516187519) succeeded and produced artifact ID 13175408880.
+- P12 PR #3, P13 PR #4, and P14 PR #4: corrected literal escaped-newline formatting in experimental README sections.
+- P12 PR #4, P13 PR #5, and P14 PR #5: added conditional companion routing to each project's README and AGENTS.md, including P12/P13/P14/P15 and OARMI where applicable. These links explicitly do not imply runtime dependencies or production integrations.
+
+### Branch governance and security visibility
+- The branch API reports main unprotected for all 14 repositories.
+- Repository ruleset listing returned zero rulesets for the 12 public repositories. The private Blueprint and Archive Test Lab ruleset endpoints returned GitHub 403 plan/visibility restrictions, so private ruleset absence is **not** established.
+- GitHub Code Scanning upload is unavailable for the private Blueprint in its current settings/plan; local CodeQL analysis and SARIF artifact retention now work. The artifact is not a substitute for Code Scanning alerts in the Security tab.
+- Account 2FA/recovery, credential revocation, GitHub security-alert settings, Discussions, and restore-drill evidence still require owner/admin or separate verification.
+
+### CI status notes
+- Blueprint merge commit validation and full-history secret scan passed; its CodeQL analysis run passed with SARIF artifact retained.
+- P12/P13/P14 main-branch fixture validation and full-history secret scan on their companion-routing commits passed. CodeQL runs were still in progress at the moment this note was prepared; final per-run status must be checked before declaring those commits fully green.
+- These are repository/workflow checks, not a production security certification or end-to-end runtime integration test.
