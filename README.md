@@ -14,6 +14,7 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 4. Definitions: [GLOSSARY.md](GLOSSARY.md).
 5. Contributions, translations, and ports: [CONTRIBUTING.md](CONTRIBUTING.md), [LOCALIZATION.md](LOCALIZATION.md), [LANGUAGE-PORTS.md](LANGUAGE-PORTS.md).
 6. Legal and compliance issue-spotting: [COMPLIANCE-AND-LEGAL-REVIEW.md](COMPLIANCE-AND-LEGAL-REVIEW.md). This is not legal advice or a compliance certification.
+7. Repository descriptions and topics: [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md).
 
 ## Public projects
 - [HuffmanRepositories](https://github.com/HuffmanRepositories/HuffmanRepositories) — portfolio discovery.
