@@ -131,3 +131,9 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 - Rechecked root-level trees across all 14 repositories. Every repo exposes README.md and AGENTS.md, including the private workspaces; project-specific files and directories are present.
 - The public Root catalog continues to exclude private Blueprint and Archive Test Lab from public routes.
 - This tree check is not a full content-by-content review of every file or a proof of all links/runtime behavior.
+
+
+## Portfolio execution issue — 2026-11-02
+- Created canonical open checklist issue: [#2 Portfolio governance, security, and release-readiness execution tracker](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/issues/2).
+- It consolidates account/repo governance, native alert review, public metadata/pins, licensing/release policy, BAD-05–BAD-08, disaster recovery, integration tests, and evidence-based closure criteria.
+- Link this issue into the GitHub Projects v2 board during the manual board update. The board itself has not been changed by the connector.
