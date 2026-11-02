@@ -148,7 +148,7 @@ The earlier snapshot above is superseded by this continuation for current PR/rel
 - Current observed PR total: **31 closed/merged, 0 open** (22 earlier baseline plus nine PRs merged during this continuation, including root audit PR #1 and P14 contribution guide PR #6).
 - **0 GitHub Releases** were returned across all 14 repositories; this is not a statement that Git tags are absent.
 - **0 open issues** were returned across all 14 repositories.
-- Discussions could not be audited using the connected GitHub action surface and remain unverified.
+- GitHub metadata reports Discussions disabled on all 14 repositories (has_discussions=false); there are no discussion threads to audit. Decide whether to enable Discussions for selected public projects.
 - main is reported unprotected for all 14 repositories. Rulesets: zero returned for all 12 public repos; private ruleset reads for Blueprint and Archive Test Lab are restricted (HTTP 403), so those two remain unverified.
 - Blueprint private CodeQL analysis now completes and stores SARIF as a 14-day workflow artifact. The workflow does not upload GitHub Code Scanning alerts; private-repo Code Security eligibility/settings must be addressed separately if native alert visibility is desired.
 - Documentation changes merged: P12/P13/P14 escaped newline formatting corrected and conditional companion routes added to their README and AGENTS.md files. P14 PR #6 added the missing CONTRIBUTING.md. The links route across delegation, retries, budget enforcement, stop semantics, and OARMI without implying a production integration.
