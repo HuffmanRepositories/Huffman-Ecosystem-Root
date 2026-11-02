@@ -39,7 +39,7 @@ For commit `e09462cf9fcd582e6a1f60b38b30bbaae6f2658f`:
 - [CodeQL — pending at the latest check](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41502945549)
 
 ## Portfolio workflow snapshot
-A read-only review of the latest five workflow runs for each of the 12 public repositories found successful secret scans, validation/fixture CI, and CodeQL runs where those workflows existed in the sampled run window. The root CodeQL run for commit `e09462c` was still in progress. This is not a complete all-history audit or security certification.
+A read-only review of recent workflow runs across the 12 public repositories showed successful scan, test, and static-analysis checks where those workflows were configured. The root CodeQL run for commit `e09462c` was still in progress. This is not a complete all-history audit or security certification.
 
 ## Scope of failure testing
 | Scenario | Current evidence | Status |
