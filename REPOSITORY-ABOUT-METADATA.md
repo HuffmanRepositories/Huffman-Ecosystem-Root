@@ -56,3 +56,18 @@ Repository-specific additions:
 The connected GitHub tool surface available for this maintenance session supports repository reads and file-content commits, but does not expose repository About-field editing or account-level pinned-repository management. Therefore this file records prepared copy; it does not claim that GitHub descriptions or topics have been changed, or that repositories have been pinned.
 
 **Attribution policy:** Robert Huffman is the ecosystem maintainer and author of original project material where stated. Preserve third-party and contributor attribution; do not imply that every upstream reference, dependency, or external contribution was authored by Robert Huffman.
+
+
+## Live metadata audit — 2026-11-02
+
+The GitHub repository metadata API was checked for all 12 public repositories after the README/catalog review:
+
+- **Descriptions present:** 4/12 (profile repo, mission hub, OAC Fixtures, and Ecosystem Root).
+- **Descriptions missing:** 8/12 — Open-Agent-Compatibility, Open-Agent-Run-Metrics-Interop, Agent-Memory-Portability-Tests, Agent-Evaluation-Oracle-Integrity-Fixtures, Agent-Tool-Retry-Idempotency-Fixtures, Agent-Delegation-Scope-Boundary-Fixtures, Agent-Delegated-Budget-Enforcement-Fixtures, and Huffman-Ecosystem-Guide.
+- **Topics:** empty on all 12 public repositories.
+- **Homepage field:** empty on all 12 public repositories.
+- The profile repository's current About description still emphasizes OSINT/cybersecurity and does not clearly describe the current AI-agent interoperability/reliability portfolio. Use the prepared profile description above as a proposed replacement, not as an applied change.
+- The profile README itself links to the public repositories, and the Root ecosystem catalog/router lists 12 public routes. The account-facing README project list is already complete; the profile pin order is not confirmed.
+- Private Blueprint and Archive Test Lab About metadata is not exposed in the normalized private-repository read response and remains unverified.
+
+**Application limitation:** the connected GitHub action surface does not expose repository About-description/topic/homepage editing or account pinned-repository management. This snapshot and the recommended copy are pushed as documentation; no GitHub About fields or pins were changed by this audit.
