@@ -7,6 +7,7 @@ This records synthetic reference-model tests and GitHub Actions checks. No live 
 - Source: `p15/reference_model.py` and `p15/test_reference_model.py`.
 - Initial local run before the added regression test: **20 tests; 16 passed; 4 skipped**.
 - After the idempotency-key regression test: **21 tests; 17 passed; 4 skipped**.
+- After adding USTOP-021 for multi-level delegated descendants: **22 tests; 18 passed; 4 skipped** (local rerun).
 - Skipped tests:
   - USTOP-008: distributed stop/resume concurrency race
   - USTOP-009: real UI tampering / stop control visibility
@@ -22,6 +23,10 @@ The adversarial probe reused an idempotency key for a different task under the s
 - Return the cached event only when the incoming request signature matches.
 - Deny a reused idempotency key when it refers to a different stop request.
 - Add regression test `test_ustop_007b_reused_key_for_different_target_is_denied`.
+
+Additional regression:
+- USTOP-021 tests a root → child → grandchild → great-grandchild chain and verifies stopped state, grant revocation, queued-work cancellation, and dispatch denial at every level.
+- Test commit: `117913bc478ed82c77c3a092b74ff339ee8ff486`.
 
 Commits:
 - Model fix: `5df297b70fe1e638f49e8e1718ab102fc0b305d1`
