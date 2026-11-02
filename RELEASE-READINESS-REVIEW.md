@@ -167,3 +167,12 @@ The portfolio remains **NOT READY FOR FINAL RELEASE** until branch protection/ac
 - External action pins verified against upstream tags: checkout v7.0.1, setup-python v7.1.0, CodeQL v4.39.1, upload-artifact v7.0.2. Actions are pinned to immutable commit SHAs.
 - All top-level onboarding local links (README, AGENTS, START-HERE, and linked CONTRIBUTING docs) checked against remote trees; no broken local links found in checked documents.
 - The repository portfolio remains **NOT READY FOR FINAL RELEASE** because branch protections, account security, About metadata/profile pins, license decisions, release provenance, and disaster-recovery/real runtime integration evidence remain unresolved.
+
+
+## USI CI follow-up — 2026-11-02
+
+- Added [USI draft envelope conformance workflow](.github/workflows/usi-validation.yml), triggered for relevant pushes and pull requests and with manual dispatch.
+- Workflow uses least-privilege `contents: read`, checkout with persisted credentials disabled, Python 3.11, pinned Actions SHAs, the declared `jsonschema` dependency, and the committed validator.
+- Verified the new workflow completed successfully on commit [`e2ddea96`](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/commit/e2ddea963a1b8a509caaed2daf9e308d90775024): [USI envelope-vector CI run](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41527557594).
+- This validates the 3 accepted and 4 rejected envelope fixtures against the envelope schema only. It does not establish operation payload semantics, authorization correctness, transport behavior, runtime security, or certification.
+- Remaining USI engineering work: payload-specific validation/conformance vectors, cross-language Python/TypeScript tests, and independently reviewed lifecycle, authorization, stop/revoke, and runtime semantics.
