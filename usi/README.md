@@ -13,14 +13,14 @@ This folder contains early, review-only artifacts for Universal Semantic Interop
 
 ## Current state
 
-**Draft only.** This is not a released standard, production API, SDK, or security certification. A small Python envelope-vector validator now exists; it is not a complete USI runtime or semantic validator. The envelope schema checks only the outer message shape; it does not validate operation-specific payloads, authorization, or semantics.
+**Draft only.** This is not a released standard, production API, SDK, or security certification. A small Python envelope-vector validator now exists and is enforced by [USI draft envelope conformance CI](../.github/workflows/usi-validation.yml) on relevant pushes and pull requests; it is not a complete USI runtime or semantic validator. The envelope schema checks only the outer message shape; it does not validate operation-specific payloads, authorization, or semantics.
 
 ## Suggested next steps
 
 1. Review and approve scope, terminology, license, and governance.
 2. Stabilize envelope and versioning rules.
 3. Complete operation-specific schemas and review lifecycle/error semantics.
-4. Run the Python golden-vector validator: `python -m pip install -r usi/requirements.txt && python usi/tools/validate_vectors.py`.
+4. Keep the [USI envelope-vector CI](../.github/workflows/usi-validation.yml) green; run locally with `python -m pip install -r usi/requirements.txt && python usi/tools/validate_vectors.py`.
 5. Implement Python and TypeScript bindings against shared conformance tests.
 6. Conduct independent interoperability and security review before release claims.
 
