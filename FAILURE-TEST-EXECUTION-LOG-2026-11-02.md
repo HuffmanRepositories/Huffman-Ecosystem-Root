@@ -145,3 +145,14 @@ Added a simplified grant model and tests for: action/resource attenuation, attem
 Commits: model `0c55638`, tests `65d8fc0`, model docs `653e9a3`, README `8d1b67c`.
 
 This is a policy-model test only. It does not model cryptographic tokens, an identity provider, wildcards/resource hierarchies, actual authorization middleware, distributed revocation propagation, or production security. See [model limitations](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures/blob/main/docs/synthetic-delegation-model.md).
+
+
+## P14 synthetic hierarchical budget ledger (2026-11-02)
+
+Added a SQLite-backed test model and tests for concurrent sibling reservations against a shared parent cap, nested child cap, reservation idempotency, settlement replay, releasing reserved capacity, revoked ancestor denial, and actual charges exceeding remaining budget.
+
+Validation: [P14 fixture CI success](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures/actions/runs/41512412184), **14 tests run, all passed**. Full-history secret scan was in progress for latest commit at last poll; CodeQL also queued/in progress.
+
+Commits: model `bcb3ae5`, tests `066dcb5`, docs `9c3dab7`, README `d462403`.
+
+This is a local SQLite model and does not establish distributed ledger behavior, provider billing integration, currency normalization, late-usage handling, multi-region enforcement or production authorization. See [synthetic budget harness limits](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures/blob/main/docs/synthetic-budget-ledger.md).
