@@ -69,7 +69,7 @@ The root now contains:
 - A deterministic, in-memory Python reference model and unit tests under `p15/`.
 - A GitHub Actions workflow that runs the reference tests and validates the event schema JSON.
 
-The current P15 workflow passes. Four scenarios are explicitly skipped because they require real distributed-concurrency, UI, accessibility, or tamper-evident audit-store integration tests. The reference model is **not** a deployed service, user-facing Stop button, credential revocation gateway, queue/scheduler controller, integration disconnect mechanism, or production runtime. No live agent runtime was found or deployed as part of this review.
+The current P15 workflow passes. Sixteen modeled scenario assertions pass; four scenarios are explicitly skipped because they require real distributed-concurrency, UI, accessibility, or tamper-evident audit-store integration tests. The reference model is **not** a deployed service, user-facing Stop button, credential revocation gateway, queue/scheduler controller, integration disconnect mechanism, or production runtime. No live agent runtime was found or deployed as part of this review.
 
 ## Remaining release blockers
 
