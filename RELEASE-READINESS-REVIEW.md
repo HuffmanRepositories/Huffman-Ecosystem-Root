@@ -27,11 +27,11 @@ This is a release-readiness assessment, not a claim that every file, dependency,
 | Ecosystem root | P15 reference tests, CodeQL, full-history Gitleaks | Successful runs on current reviewed commits |
 
 Root run evidence:
-- [P15 reference validation](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435032179)
-- [Full-history secret scan](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435032262)
-- [CodeQL static analysis](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435032276)
+- [P15 reference validation](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435384541)
+- [Full-history secret scan](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435384539)
+- [CodeQL static analysis](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41435384945)
 
-These workflow results are useful evidence, not a guarantee of absence of vulnerabilities. They do not replace dependency review, manual code review, runtime penetration testing, GitHub account security review, branch/ruleset review, or verification of third-party integrations. Branch protection and account-level security settings were not fully inspectable in this session.
+These workflow results are useful evidence, not a guarantee of absence of vulnerabilities. They do not replace dependency review, manual code review, runtime penetration testing, GitHub account security review, branch/ruleset review, or verification of third-party integrations. Branch-protection reads returned HTTP 403 for all 12 public repositories, so protection/ruleset status could not be confirmed. Account-level security settings were also not inspectable. Discussions were not available through the connected review interface, and external-link checking was not exhaustive.
 
 ## Releases and versioning
 
