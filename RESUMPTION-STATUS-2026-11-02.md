@@ -72,7 +72,7 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 - The branch API reports main unprotected for all 14 repositories.
 - Repository ruleset listing returned zero rulesets for the 12 public repositories. The private Blueprint and Archive Test Lab ruleset endpoints returned GitHub 403 plan/visibility restrictions, so private ruleset absence is **not** established.
 - GitHub Code Scanning upload is unavailable for the private Blueprint in its current settings/plan; local CodeQL analysis and SARIF artifact retention now work. The artifact is not a substitute for Code Scanning alerts in the Security tab.
-- Account 2FA/recovery, credential revocation, GitHub security-alert settings, Discussions, and restore-drill evidence still require owner/admin or separate verification.
+- Account 2FA/recovery, credential revocation, native GitHub security-alert settings, discussion enablement policy, and restore-drill evidence still require owner/admin or separate verification.
 
 ### CI status notes
 - Blueprint merge commit validation and full-history secret scan passed; its CodeQL analysis run passed with SARIF artifact retained.
