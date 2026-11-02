@@ -75,5 +75,5 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 
 ### CI status notes
 - Blueprint merge commit validation and full-history secret scan passed; its CodeQL analysis run passed with SARIF artifact retained.
-- P12/P13/P14 main-branch fixture validation and full-history secret scan on their companion-routing commits passed. CodeQL runs were still in progress at the moment this note was prepared; final per-run status must be checked before declaring those commits fully green.
+- P12/P13/P14 main-branch fixture validation, CodeQL, and full-history secret scans on their companion-routing merge commits all passed: [P12 CodeQL](https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures/actions/runs/41516790383), [P13 CodeQL](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures/actions/runs/41516803198), [P14 CodeQL](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures/actions/runs/41516813618).
 - These are repository/workflow checks, not a production security certification or end-to-end runtime integration test.
