@@ -6,7 +6,7 @@ This folder contains early, review-only artifacts for Universal Semantic Interop
 - [Draft message-envelope JSON Schema](schemas/usi-envelope.schema.json)
 - [Tool invocation payload schema](schemas/usi-tool-invoke-payload.schema.json)
 - [Result payload schema](schemas/usi-result-payload.schema.json)
-- [Stop request payload schema](schemas/usi-stop-payload.schema.json)
+- [Stop request payload schema](schemas/usi-stop-payload.schema.json)\n- [Capabilities response payload schema](schemas/usi-capabilities-payload.schema.json)\n- [Stop acknowledgement payload schema](schemas/usi-stop-ack-payload.schema.json)\n- [Envelope golden vectors](fixtures/usi-envelope-vectors.json)
 
 ## Current state
 
