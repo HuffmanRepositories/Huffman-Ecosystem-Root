@@ -136,3 +136,12 @@ Validation: [P12 fixture CI success](https://github.com/HuffmanRepositories/Agen
 Commits: harness `63dc884`, tests `447e984`, documentation `570689c`, README `89fb6f3`.
 
 Limit: this is a same-SQLite-transaction simulation. It does not establish exactly-once behavior for external provider APIs whose side effect cannot participate in that transaction. It does not test multi-host failure, key expiry, auth isolation, provider reconciliation, or production durability. See [synthetic harness boundary notes](https://github.com/HuffmanRepositories/Agent-Tool-Retry-Idempotency-Fixtures/blob/main/docs/synthetic-idempotency-harness.md).
+
+
+## P13 synthetic delegation-scope model (2026-11-02)
+
+Added a simplified grant model and tests for: action/resource attenuation, attempted scope expansion, tenant mismatch, issuer mismatch, child expiry exceeding parent expiry, ancestor revocation, expired ancestor fail-closed, and wrong actor. Latest validation run: [P13 fixture CI success](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures/actions/runs/41512165416), **15 tests run, all passed**. Full-history secret scan passed; CodeQL was still in progress at last poll.
+
+Commits: model `0c55638`, tests `65d8fc0`, model docs `653e9a3`, README `8d1b67c`.
+
+This is a policy-model test only. It does not model cryptographic tokens, an identity provider, wildcards/resource hierarchies, actual authorization middleware, distributed revocation propagation, or production security. See [model limitations](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures/blob/main/docs/synthetic-delegation-model.md).
