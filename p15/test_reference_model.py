@@ -7,7 +7,7 @@ from reference_model import StopController, Task
 def fixture_controller(**kwargs):
     tasks = [
         Task("task-a", "tenant-a", "user-a"),
-        Task("child-a", "tenant-a", "user-a", parent_id="task-a"),
+        Task("child-a", "tenant-a", "delegated-agent", parent_id="task-a"),
         Task("other-user", "tenant-a", "user-b"),
         Task("other-tenant", "tenant-b", "user-a"),
     ]
@@ -36,6 +36,7 @@ class UserStopReferenceTests(unittest.TestCase):
         c = fixture_controller()
         c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a", idempotency_key="k4")
         self.assertEqual(c.tasks["child-a"].state, "stopped")
+        self.assertFalse(c.tasks["child-a"].grant_active)
         self.assertFalse(c.dispatch_allowed("child-a"))
 
     def test_ustop_005_cancels_queued_work(self):
@@ -100,6 +101,7 @@ class UserStopReferenceTests(unittest.TestCase):
         e = c.stop(actor_id="user-a", tenant_id="tenant-a", task_id="task-a",
                    idempotency_key="k15", account_wide=True)
         self.assertEqual(e["scope"], "user_authority_graph")
+        self.assertEqual(c.tasks["child-a"].state, "stopped")
         self.assertEqual(c.tasks["other-user"].state, "running")
         self.assertEqual(c.tasks["other-tenant"].state, "running")
 
