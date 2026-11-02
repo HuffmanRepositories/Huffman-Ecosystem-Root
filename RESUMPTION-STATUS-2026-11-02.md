@@ -137,3 +137,19 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 - Created canonical open checklist issue: [#2 Portfolio governance, security, and release-readiness execution tracker](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/issues/2).
 - It consolidates account/repo governance, native alert review, public metadata/pins, licensing/release policy, BAD-05–BAD-08, disaster recovery, integration tests, and evidence-based closure criteria.
 - Link this issue into the GitHub Projects v2 board during the manual board update. The board itself has not been changed by the connector.
+
+
+## Follow-up audit pass — 2026-11-02
+
+### Portfolio Actions workflow recheck
+A fresh Actions API pass reviewed the latest returned runs for all 14 repositories. The latest returned workflow runs inspected were completed successfully. For technical repos, the newest visible fixture/validation CI and CodeQL runs were successful where present; full-history secret scan runs were also successful. This does not establish that native GitHub Security alerts are empty, nor that all branches or runtime integrations are covered.
+
+Latest Root commit checked: `907c93c0f92685006c01f75f62bf9572882909d1`:
+- [P15 reference validation — success](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41522094845)
+- [CodeQL — success](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41522094984)
+- [Full-history secret scan — success](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41522094893)
+
+### Human-owned tasks explicitly deferred
+The maintainer has requested that branch rulesets be handled later. Keep branch protection/rulesets for all 14 repositories marked as a **HUMAN TASK / DEFERRED**, not as AI-completed. Also owner-only tasks remain: account 2FA/recovery and credential review, native GitHub security alert dashboard review, private ruleset verification, About metadata/topics/homepage/profile pins, GitHub Project board linking, licensing approval, release/tag/signing policy, and Discussions policy.
+
+Canonical checklist: [Root issue #2 — portfolio governance, security, and release-readiness tracker](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/issues/2).
