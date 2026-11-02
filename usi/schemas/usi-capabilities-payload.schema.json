@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/blob/main/usi/schemas/usi-capabilities-payload.schema.json",
+  "title": "USI 0.1 Capabilities Payload",
+  "description": "Draft schema for capability response payloads. Informational only; not authentication or trust evidence.",
+  "type": "object",
+  "required": ["contract_versions", "operations"],
+  "properties": {
+    "contract_versions": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^usi/[0-9]+\\.[0-9]+$" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version", "status"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^usi\\.[a-z][a-z0-9]*(?:\\.[a-z][a-z0-9]*)*$" },
+          "version": { "type": "string", "minLength": 1, "maxLength": 32 },
+          "status": { "enum": ["experimental", "supported", "deprecated"] },
+          "constraints": { "type": "object", "additionalProperties": true }
+        },
+        "additionalProperties": false
+      },
+      "uniqueItems": true
+    },
+    "features": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "limits": { "type": "object", "additionalProperties": true }
+  },
+  "additionalProperties": false
+}
