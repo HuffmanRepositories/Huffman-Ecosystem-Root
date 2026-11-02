@@ -2,7 +2,7 @@
 
 **Status:** synthetic reference model and unit tests; not a production deployment.
 
-This package turns the P15 test plan into an executable, deterministic in-memory reference model. It covers user/task ownership, tenant boundaries, descendant containment, queued work, grant revocation, idempotency, fail-closed dispatch, truthful residual-risk reporting, and the 20 USTOP scenario identifiers.
+This package turns the P15 test plan into an executable, deterministic in-memory reference model. It covers user/task ownership, tenant boundaries, descendant containment, queued work, grant revocation, idempotency, fail-closed dispatch, truthful residual-risk reporting, and the 20 USTOP scenario identifiers. It also includes a separate **synthetic P12–P15 seam harness** that models retry/idempotency, child delegation, budget reservation, stop/revoke, late-provider-result reconciliation state, and audit ordering. See [harness details and limits](CROSS-SYSTEM-INTEGRATION-HARNESS.md).
 
 ## Run locally
 
