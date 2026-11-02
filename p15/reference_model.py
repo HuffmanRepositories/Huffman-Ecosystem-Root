@@ -32,7 +32,7 @@ class StopController:
         self.tasks: Dict[str, Task] = {task.task_id: task for task in tasks}
         self.available = available
         self.identity_available = identity_available
-        self._idempotency: Dict[Tuple[str, str], dict] = {}
+        self._idempotency: Dict[Tuple[str, str], Tuple[Tuple[str, str, bool], dict]] = {}
         self.audit: List[dict] = []
 
     def _descendants(self, root_id: str) -> List[Task]:
@@ -62,8 +62,16 @@ class StopController:
     def stop(self, *, actor_id: str, tenant_id: str, task_id: str,
              idempotency_key: str, account_wide: bool = False) -> dict:
         cache_key = (actor_id, idempotency_key)
-        if cache_key in self._idempotency:
-            return self._idempotency[cache_key]
+        request_signature = (tenant_id, task_id, account_wide)
+        cached = self._idempotency.get(cache_key)
+        if cached is not None:
+            cached_signature, cached_event = cached
+            if cached_signature == request_signature:
+                return cached_event
+            return self._event(
+                task_id, tenant_id, actor_id, "task", "received", "denied",
+                ["Idempotency key was already used for a different stop request."]
+            )
 
         if not self.available:
             return self._event(task_id, tenant_id, actor_id, "task",
@@ -112,7 +120,7 @@ class StopController:
         state = "complete_with_limitations" if residual else "work_contained"
         result = "partial" if residual else "effective"
         event = self._event(task_id, tenant_id, actor_id, scope, state, result, residual)
-        self._idempotency[cache_key] = event
+        self._idempotency[cache_key] = (request_signature, event)
         return event
 
     def _event(self, task_id: str, tenant_id: str, actor_id: str, scope: str,
