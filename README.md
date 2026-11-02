@@ -13,7 +13,7 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 3. Project selection: [PROJECT-CATALOG.md](PROJECT-CATALOG.md) and [USE-CASE-ROUTER.md](USE-CASE-ROUTER.md).
 4. Definitions: [GLOSSARY.md](GLOSSARY.md).
 5. Contributions, translations, and ports: [CONTRIBUTING.md](CONTRIBUTING.md), [LOCALIZATION.md](LOCALIZATION.md), [LANGUAGE-PORTS.md](LANGUAGE-PORTS.md).
-6. Safety engineering: [USER-CONTROLLED-KILLSWITCH.md](USER-CONTROLLED-KILLSWITCH.md), [USER-KILLSWITCH-TEST-PLAN.md](USER-KILLSWITCH-TEST-PLAN.md), [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md), [ROGUE-AGENT-INCIDENT-RESPONSE.md](ROGUE-AGENT-INCIDENT-RESPONSE.md), and [SAFE-USE-AND-SECURITY.md](SAFE-USE-AND-SECURITY.md).
+6. Safety engineering: [USER-CONTROLLED-KILLSWITCH.md](USER-CONTROLLED-KILLSWITCH.md), [USER-KILLSWITCH-TEST-PLAN.md](USER-KILLSWITCH-TEST-PLAN.md), [P15 reference fixtures and tests](p15/README.md), [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md), [ROGUE-AGENT-INCIDENT-RESPONSE.md](ROGUE-AGENT-INCIDENT-RESPONSE.md), and [SAFE-USE-AND-SECURITY.md](SAFE-USE-AND-SECURITY.md).
 7. Legal and compliance issue-spotting: [COMPLIANCE-AND-LEGAL-REVIEW.md](COMPLIANCE-AND-LEGAL-REVIEW.md). This is not legal advice or a compliance certification.
 8. Repository descriptions and topics: [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md).
 
@@ -30,6 +30,8 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 - [Agent-Delegation-Scope-Boundary-Fixtures](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures) — delegation boundaries (P13).
 - [Agent-Delegated-Budget-Enforcement-Fixtures](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures) — delegated budgets (P14).
 
+P15 is currently a reference-fixture package inside this root repository, not a separate repository or production service. The [P15 README](p15/README.md) documents its scope and limitations.
+
 Private workspaces are intentionally omitted from this public directory.
 
 ## Progressive discovery
@@ -42,6 +44,15 @@ Private workspaces are intentionally omitted from this public directory.
 | 4 | Extend | CONTRIBUTING, LOCALIZATION, LANGUAGE-PORTS |
 
 This is a directory, not a monolithic software package. Each project owns its specifications, tests, releases, license, security policy, and maturity claims. A passing fixture validator does not prove production conformance or security.
+
+## Validation
+Run the P15 synthetic reference tests from the repository root:
+
+```bash
+python -m unittest discover -s p15 -p 'test_*.py' -v
+```
+
+GitHub Actions runs the same tests on pushes and pull requests. This validates the in-memory reference model only; it does not deploy or verify a live emergency-stop service.
 
 If this directory helps, consider starring it. Fork and reuse responsibly: preserve applicable license and attribution notices, identify modifications, retain upstream provenance, and do not imply that a fork is official or endorsed.
 
