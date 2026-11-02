@@ -8,6 +8,8 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 > **Do not ingest everything at once.** Discover the whole ecosystem, then work through one relevant project at a time.
 
 
+> **Portfolio scale (2026-11-02):** 14 repositories across the HuffmanRepositories account (12 public, 2 private), with 12 public projects represented in this directory. The portfolio spans mission/coordination, compatibility, metrics interoperability, memory portability (P10), evaluation integrity (P11), retries/idempotency (P12), delegation scope (P13), delegated budgets (P14), and user-controlled stop semantics (P15, currently housed here). The private Blueprint and Archive Test Lab workspaces are intentionally excluded from public routing.
+>
 > **Portfolio maturity:** Open research, documentation, and synthetic test fixtures. This repository is the canonical directory and coordination front door—not a unified production agent runtime. Individual projects define their own maturity and validation limits; no ecosystem-wide certification or production release is claimed.
 
 ## Start here
