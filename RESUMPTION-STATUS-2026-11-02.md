@@ -36,7 +36,7 @@ This does not mean there are no closed PRs, workflow failures, security alerts, 
 1. Execute isolated catastrophic failure tests (BAD-05 through BAD-08).
 2. Verify stale credential denial and task/child/queue/retry containment.
 3. Review root and public repository Actions, CodeQL, Gitleaks, dependency alerts, and workflow permissions.
-4. Confirm branch protection/rulesets and account security settings via GitHub settings; connector access has not established those facts.
+4. Address branch governance: main is confirmed unprotected for all 14 repos; public ruleset list is empty; private ruleset reads are restricted. Account 2FA/recovery and private ruleset policy still require owner/admin settings review.
 5. Reconcile the private Blueprint build ledger and archive/test-lab inventory against the actual repository state.
 6. Finish About metadata, topics, profile pins, link audit, licensing review, and release approvals.
 
