@@ -44,6 +44,28 @@ The latest P15, CodeQL, and Gitleaks runs completed with `success` on that exact
 
 These workflow results are useful evidence, not a guarantee of absence of vulnerabilities. They do not replace dependency review, manual code review, runtime penetration testing, GitHub account security review, branch/ruleset review, or verification of third-party integrations. Branch-protection reads returned HTTP 403 for all 12 public repositories, so protection/ruleset status could not be confirmed. Account-level security settings were also not inspectable. Discussions were not available through the connected review interface, and external-link checking was not exhaustive. The private Blueprint workspace now has validation and CodeQL workflows, but their run results could not be verified through the available private-repository read path.
 
+
+### Portfolio-wide public workflow recheck (2026-11-02)
+
+A fresh Actions API recheck across all 12 public repositories found the newest visible workflow runs completed successfully on their respective commits:
+
+| Repository | Latest inspected workflow evidence |
+|---|---|
+| `HuffmanRepositories` | Full-history Gitleaks — success |
+| `Huffman-Ecosystem-Root` | P15 validation, CodeQL, full-history Gitleaks — success |
+| `Open-Source-AI-Independence` | Full-history Gitleaks — success |
+| `Huffman-Ecosystem-Guide` | Full-history Gitleaks — success |
+| `Open-Agent-Compatibility` | Validation, CodeQL, full-history Gitleaks — success |
+| `Open-Agent-Compatibility-Fixtures` | Fixture validation, CodeQL, full-history Gitleaks — success |
+| `Open-Agent-Run-Metrics-Interop` | Fixture validation, CodeQL, full-history Gitleaks — success |
+| `Agent-Memory-Portability-Tests` | Fixture validation, CodeQL, full-history Gitleaks — success |
+| `Agent-Evaluation-Oracle-Integrity-Fixtures` | Fixture validation, CodeQL, full-history Gitleaks — success |
+| `Agent-Tool-Retry-Idempotency-Fixtures` | Fixture validation, CodeQL, full-history Gitleaks — success |
+| `Agent-Delegation-Scope-Boundary-Fixtures` | Fixture validation, CodeQL, full-history Gitleaks — success |
+| `Agent-Delegated-Budget-Enforcement-Fixtures` | Fixture validation, CodeQL, full-history Gitleaks — success |
+
+This is a point-in-time check of the latest returned workflow runs, not a guarantee that every branch, workflow, dependency, or runtime path was scanned. The profile, mission hub, and guide have secret scanning workflows; they do not have the same code/fixture validation workflow set as the technical repositories. Private repository workflows are excluded from this table.
+
 ## Releases and versioning
 
 - No published GitHub Release records were returned for the 12 public repositories checked.
