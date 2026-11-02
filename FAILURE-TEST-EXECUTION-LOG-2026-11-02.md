@@ -67,3 +67,21 @@ A read-only review of recent workflow runs across the 12 public repositories sho
 - A narrowly scoped Gitleaks allowlist now requires the exact historical commit, exact file path, and matching line text; it does not disable the detector repository-wide.
 - [Full-history secret scan after allowlist correction — passed](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41503704969).
 - The earlier scan failures were configuration/false-positive triage, not evidence that a live credential was exposed. Keep the allowlist under review and remove it if the prose/fingerprint changes.
+
+
+## Synthetic budget stress probe (isolated model)
+A small standalone synthetic ledger was exercised against six explicitly defined invariants:
+1. Sibling reservations cannot overcommit shared capacity.
+2. A revoked actor cannot reserve new capacity.
+3. Cancellation plus late usage reconciles reservation and actual usage.
+4. A cancelled request cannot later commit usage a second time.
+5. Settlement cannot exceed the reservation.
+6. Reserved plus committed capacity remains within the configured limit.
+
+Result: **6/6 checks passed in the synthetic model**.
+
+This is not an integration test of the Agent-Delegated-Budget-Enforcement-Fixtures validator or any real budget service. The policy choices (especially cancellation/late-arrival reconciliation) are illustrative and require specification-level review before being treated as normative. The public budget-fixture repository currently validates fixture structure and accounting relationships; it does not simulate concurrency or enforce a runtime ledger.
+
+## Access / verification limits (continued)
+- Branch-protection endpoint reads returned HTTP 403 for the GitHub connector. Rulesets/required checks cannot be verified from this connection; user-side GitHub settings review remains required.
+- No production credential revocation, account recovery, actual queue/scheduler, or real agent stop was attempted.
