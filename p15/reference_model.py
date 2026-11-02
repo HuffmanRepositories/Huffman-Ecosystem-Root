@@ -6,6 +6,7 @@ credential revoker, queue controller, or deployed emergency-stop service.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import threading
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Tuple
 
@@ -33,6 +34,9 @@ class StopController:
         self.available = available
         self.identity_available = identity_available
         self._idempotency: Dict[Tuple[str, str], Tuple[Tuple[str, str, bool], dict]] = {}
+        # Serialize stop transitions and idempotency-key reservation in this model.
+        # This is process-local synchronization, not distributed coordination.
+        self._stop_lock = threading.RLock()
         self.audit: List[dict] = []
 
     def _descendants(self, root_id: str) -> List[Task]:
@@ -61,6 +65,13 @@ class StopController:
 
     def stop(self, *, actor_id: str, tenant_id: str, task_id: str,
              idempotency_key: str, account_wide: bool = False) -> dict:
+        with self._stop_lock:
+            return self._stop_locked(actor_id=actor_id, tenant_id=tenant_id,
+                                     task_id=task_id, idempotency_key=idempotency_key,
+                                     account_wide=account_wide)
+
+    def _stop_locked(self, *, actor_id: str, tenant_id: str, task_id: str,
+                     idempotency_key: str, account_wide: bool = False) -> dict:
         cache_key = (actor_id, idempotency_key)
         request_signature = (tenant_id, task_id, account_wide)
         cached = self._idempotency.get(cache_key)
