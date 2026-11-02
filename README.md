@@ -8,6 +8,7 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 > **Do not ingest everything at once.** Discover the whole ecosystem, then work through one relevant project at a time.
 
 ## Start here
+0. Current ecosystem status: [Release-readiness review](RELEASE-READINESS-REVIEW.md) and [security policy](SECURITY.md).
 1. Humans: [START-HERE.md](START-HERE.md).
 2. AI agents: [AGENTS.md](AGENTS.md), then parse [ecosystem.json](ecosystem.json) and [AGENT-ROUTER.json](AGENT-ROUTER.json).
 3. Project selection: [PROJECT-CATALOG.md](PROJECT-CATALOG.md) and [USE-CASE-ROUTER.md](USE-CASE-ROUTER.md).
