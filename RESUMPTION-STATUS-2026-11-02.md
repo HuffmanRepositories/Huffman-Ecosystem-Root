@@ -60,7 +60,7 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 - Earlier PR baseline: 22 closed/merged. Nine further PRs were opened and merged during this continuation: Blueprint #4; P12 #3 and #4; P13 #4 and #5; P14 #4, #5, and #6; Root #1. Current observed total: **31 closed/merged PRs, 0 open PRs**.
 - GitHub Releases API returned **0 published releases across all 14 repositories**. This does not imply there are no Git tags; tag listing was not fully reconciled.
 - Open issue queries returned **0 open issues across all 14 repositories**.
-- Discussion threads remain **unverified**: the connected GitHub interface did not expose a supported Discussions listing/read action.
+- GitHub repository metadata reports Discussions disabled (has_discussions=false) on all 14 repositories; there are no Discussions threads to review unless the feature is enabled.
 
 ### Changes merged during this continuation
 - Blueprint PR #4: CodeQL now runs analysis without unsupported private Code Scanning upload and retains SARIF as a 14-day Actions artifact. Merge commit: 6971b7dfba62b43a3d45ac664738e14a505e85d0. CodeQL workflow [run 41516187519](https://github.com/HuffmanRepositories/HuffmanRepositories-Blueprint/actions/runs/41516187519) succeeded and produced artifact ID 13175408880.
