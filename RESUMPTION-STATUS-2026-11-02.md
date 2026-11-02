@@ -66,6 +66,7 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 - Blueprint PR #4: CodeQL now runs analysis without unsupported private Code Scanning upload and retains SARIF as a 14-day Actions artifact. Merge commit: 6971b7dfba62b43a3d45ac664738e14a505e85d0. CodeQL workflow [run 41516187519](https://github.com/HuffmanRepositories/HuffmanRepositories-Blueprint/actions/runs/41516187519) succeeded and produced artifact ID 13175408880.
 - P12 PR #3, P13 PR #4, and P14 PR #4: corrected literal escaped-newline formatting in experimental README sections.
 - P12 PR #4, P13 PR #5, and P14 PR #5: added conditional companion routing to each project's README and AGENTS.md, including P12/P13/P14/P15 and OARMI where applicable. These links explicitly do not imply runtime dependencies or production integrations.
+- P14 PR #6 added the missing CONTRIBUTING.md referenced by README and AGENTS; contribution guide links were checked.
 
 ### Branch governance and security visibility
 - The branch API reports main unprotected for all 14 repositories.
