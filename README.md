@@ -1,7 +1,7 @@
 # Huffman Ecosystem Root
 ### The official public front door to the HuffmanRepositories ecosystem
 
-**Created and directed by Robert Huffman**
+**Created and directed by Robert Huffman (MrCakes931)**
 
 Welcome. This repository is the primary locator, onboarding path, and navigation system for the public HuffmanRepositories ecosystem. A person or AI agent who discovers one project should be able to find the wider portfolio, understand each project's distinct purpose, and choose a safe next step.
 
@@ -13,6 +13,7 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 3. Project selection: [PROJECT-CATALOG.md](PROJECT-CATALOG.md) and [USE-CASE-ROUTER.md](USE-CASE-ROUTER.md).
 4. Definitions: [GLOSSARY.md](GLOSSARY.md).
 5. Contributions, translations, and ports: [CONTRIBUTING.md](CONTRIBUTING.md), [LOCALIZATION.md](LOCALIZATION.md), [LANGUAGE-PORTS.md](LANGUAGE-PORTS.md).
+6. Legal and compliance issue-spotting: [COMPLIANCE-AND-LEGAL-REVIEW.md](COMPLIANCE-AND-LEGAL-REVIEW.md). This is not legal advice or a compliance certification.
 
 ## Public projects
 - [HuffmanRepositories](https://github.com/HuffmanRepositories/HuffmanRepositories) — portfolio discovery.
@@ -42,4 +43,4 @@ This is a directory, not a monolithic software package. Each project owns its sp
 
 If this directory helps, consider starring it. Fork and reuse responsibly: preserve applicable license and attribution notices, identify modifications, retain upstream provenance, and do not imply that a fork is official or endorsed.
 
-**Created by Robert Huffman.** See GOVERNANCE.md and PROVENANCE-AND-REUSE.md.
+**Created by Robert Huffman (MrCakes931).** See GOVERNANCE.md and PROVENANCE-AND-REUSE.md.
