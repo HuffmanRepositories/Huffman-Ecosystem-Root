@@ -156,3 +156,23 @@ Validation: [P14 fixture CI success](https://github.com/HuffmanRepositories/Agen
 Commits: model `bcb3ae5`, tests `066dcb5`, docs `9c3dab7`, README `d462403`.
 
 This is a local SQLite model and does not establish distributed ledger behavior, provider billing integration, currency normalization, late-usage handling, multi-region enforcement or production authorization. See [synthetic budget harness limits](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures/blob/main/docs/synthetic-budget-ledger.md).
+
+
+## P12–P15 synthetic cross-system seam harness (2026-11-02)
+
+Added `p15/test_cross_system_integration.py` and [scope/limitations](p15/CROSS-SYSTEM-INTEGRATION-HARNESS.md) to compose synthetic contract-like behavior for delegation, tool idempotency, budget reservation, stop/revoke, and audit ordering.
+
+Scenarios:
+- Authorized child dispatch and idempotent replay produce one synthetic effect.
+- Tenant mismatch denies dispatch.
+- Parent stop revokes child scope and prevents new dispatch.
+- Late simulated provider result after stop remains **pending reconciliation**; the harness explicitly does not claim provider cancellation.
+- 16 concurrent duplicate reserve/dispatch workers yield one effect.
+- Retry after stop cannot resurrect dispatch.
+- Audit order includes reserve → tool dispatch → stop.
+
+CI: [P15 validation workflow passed](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41513118852), **34 tests run; 30 passed; 4 skipped; no failures**. [Full-history secret scan passed](https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/actions/runs/41513089816). CodeQL was queued/in progress at the last poll.
+
+Harness commit: `b5f2dfa18bc9966c0c1babbff40145a677005beb`. Scope documentation commit: `df9d4113867583415bcf4f08132fec1164682808`.
+
+**Important limitation:** this is one small process-local synthetic model, not a true integration of P12/P13/P14 services or production P15. It does not validate multi-host concurrency, persistent ledgers, real provider side effects/cancellation, cryptographic authorization, billing reconciliation, queue execution, or deployed containment. The 4 prior P15 UI/accessibility/distributed-race/audit-storage skips remain unresolved integration gaps. A passing suite is not a certification or production-readiness result.
