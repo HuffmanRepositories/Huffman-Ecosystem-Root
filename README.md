@@ -20,9 +20,10 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 4. Project selection: [PROJECT-CATALOG.md](PROJECT-CATALOG.md) and [USE-CASE-ROUTER.md](USE-CASE-ROUTER.md).
 5. Definitions: [GLOSSARY.md](GLOSSARY.md).
 6. Contributions, translations, and ports: [CONTRIBUTING.md](CONTRIBUTING.md), [LOCALIZATION.md](LOCALIZATION.md), [LANGUAGE-PORTS.md](LANGUAGE-PORTS.md).
-7. Safety engineering: [USER-CONTROLLED-KILLSWITCH.md](USER-CONTROLLED-KILLSWITCH.md), [USER-KILLSWITCH-TEST-PLAN.md](USER-KILLSWITCH-TEST-PLAN.md), [P15 reference fixtures and tests](p15/README.md), [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md), [ROGUE-AGENT-INCIDENT-RESPONSE.md](ROGUE-AGENT-INCIDENT-RESPONSE.md), [SAFE-USE-AND-SECURITY.md](SAFE-USE-AND-SECURITY.md), and [catastrophic failure / disaster recovery exercise](DISASTER-RECOVERY-AND-CATASTROPHIC-FAILURE-EXERCISE.md).
-8. Legal and compliance issue-spotting: [COMPLIANCE-AND-LEGAL-REVIEW.md](COMPLIANCE-AND-LEGAL-REVIEW.md). This is not legal advice or a compliance certification.
-9. Repository descriptions and topics: [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md).
+7. **Universal semantic interoperability:** [USI architecture proposal](UNIVERSAL-SEMANTIC-INTEROPERABILITY-PROPOSAL.md) — language-neutral semantic contracts, programming-language adapters, human-language localization, and conformance testing. This is a proposal, not a released standard or runtime.
+8. Safety engineering: [USER-CONTROLLED-KILLSWITCH.md](USER-CONTROLLED-KILLSWITCH.md), [USER-KILLSWITCH-TEST-PLAN.md](USER-KILLSWITCH-TEST-PLAN.md), [P15 reference fixtures and tests](p15/README.md), [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md), [ROGUE-AGENT-INCIDENT-RESPONSE.md](ROGUE-AGENT-INCIDENT-RESPONSE.md), [SAFE-USE-AND-SECURITY.md](SAFE-USE-AND-SECURITY.md), and [catastrophic failure / disaster recovery exercise](DISASTER-RECOVERY-AND-CATASTROPHIC-FAILURE-EXERCISE.md).
+9. Legal and compliance issue-spotting: [COMPLIANCE-AND-LEGAL-REVIEW.md](COMPLIANCE-AND-LEGAL-REVIEW.md). This is not legal advice or a compliance certification.
+10. Repository descriptions and topics: [REPOSITORY-ABOUT-METADATA.md](REPOSITORY-ABOUT-METADATA.md).
 
 ## Public projects
 - [HuffmanRepositories](https://github.com/HuffmanRepositories/HuffmanRepositories) — portfolio discovery.
