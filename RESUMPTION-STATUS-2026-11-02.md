@@ -57,7 +57,7 @@ This section supersedes earlier partial PR/CI snapshots above where the observat
 
 ### PR and repository state
 - Rechecked the 14-repository inventory: 12 public, 2 private; all default to main; none archived.
-- Earlier PR baseline: 22 closed/merged. Seven further PRs were opened and merged during this continuation: Blueprint #4; P12 #3 and #4; P13 #4 and #5; P14 #4 and #5. Current observed total: **29 closed/merged PRs, 0 open PRs**.
+- Earlier PR baseline: 22 closed/merged. Eight further PRs were opened and merged during this continuation: Blueprint #4; P12 #3 and #4; P13 #4 and #5; P14 #4 and #5; Root #1. Current observed total: **30 closed/merged PRs, 0 open PRs**.
 - GitHub Releases API returned **0 published releases across all 14 repositories**. This does not imply there are no Git tags; tag listing was not fully reconciled.
 - Open issue queries returned **0 open issues across all 14 repositories**.
 - Discussion threads remain **unverified**: the connected GitHub interface did not expose a supported Discussions listing/read action.
