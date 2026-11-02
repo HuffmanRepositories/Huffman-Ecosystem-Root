@@ -105,6 +105,6 @@ A dated report with: repos/files inspected; commits pushed; PRs reviewed and dec
 ## Current known starting point (2026-11-02)
 
 - Account snapshot: 14 repositories; 12 public and 2 private.
-- Open PR search currently returned zero; closed PR search returned 22 records, but the connector search summary does not itself reliably expose merged-vs-closed status. Verify each PR's canonical REST metadata before labeling it merged.
+- Earlier PR baseline: 22. Seven additional PRs merged in the 2026-11-02 continuation (Blueprint #4; P12 #3/#4; P13 #4/#5; P14 #4/#5). Current observed total: 29 closed/merged, 0 open; verify canonical per-repo PR metadata for future updates.
 - Root P15 map/router consistency requires ongoing check: ecosystem map should include P15 and indicate synthetic P12–P15 seam coverage only.
 - Owner/admin settings remain outside the connector's reliable visibility: branch protections/rulesets, account 2FA/recovery, native security alert/push-protection settings, and restore-drill evidence.
