@@ -14,4 +14,8 @@
 | [P13](https://github.com/HuffmanRepositories/Agent-Delegation-Scope-Boundary-Fixtures) | Delegated authority boundaries | Authorization engine |
 | [P14](https://github.com/HuffmanRepositories/Agent-Delegated-Budget-Enforcement-Fixtures) | Delegated budget scenarios | Production budget manager |
 
+## Cross-cutting security workstream
+
+The [User-Controlled Emergency Stop specification](USER-CONTROLLED-KILLSWITCH.md) defines the user-facing stop contract. The [verification plan](USER-KILLSWITCH-TEST-PLAN.md) proposes candidate P15 synthetic fixtures. These are cross-cutting requirements and test plans, not a deployed kill-switch product or a newly created repository. Operator containment remains defined in [KILLSWITCH-AND-CONTAINMENT.md](KILLSWITCH-AND-CONTAINMENT.md).
+
 The mission hub coordinates direction; the Ecosystem Guide teaches navigation; OAC defines mapping methodology; OAC Fixtures provides reproducible examples; OARMI handles usage representation; P10–P14 address distinct agent reliability topics. Private workspaces are excluded.
