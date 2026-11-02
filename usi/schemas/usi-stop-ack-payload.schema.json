@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/blob/main/usi/schemas/usi-stop-ack-payload.schema.json",
+  "title": "USI 0.1 Stop Acknowledgement Payload",
+  "description": "Draft acknowledgement for a stop request. accepted means queued/accepted, not that effects have ceased.",
+  "type": "object",
+  "required": ["run_id", "status"],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "status": { "enum": ["accepted", "already_stopped", "not_found", "denied"] },
+    "reason_code": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "message": {
+      "type": "object",
+      "required": ["text", "language"],
+      "properties": {
+        "text": { "type": "string", "maxLength": 4096 },
+        "language": { "type": "string", "minLength": 2, "maxLength": 64 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
