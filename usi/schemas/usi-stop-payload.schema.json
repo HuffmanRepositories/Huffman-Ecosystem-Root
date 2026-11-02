@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HuffmanRepositories/Huffman-Ecosystem-Root/blob/main/usi/schemas/usi-stop-payload.schema.json",
+  "title": "USI 0.1 Stop Request Payload (Draft)",
+  "type": "object",
+  "required": ["run_id", "reason_code"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1, "maxLength": 512},
+    "reason_code": {"type": "string", "pattern": "^[a-z][a-z0-9_]{0,63}$"},
+    "requested_by": {"type": "string", "minLength": 1, "maxLength": 512}
+  },
+  "additionalProperties": false
+}
