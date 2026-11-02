@@ -7,6 +7,9 @@ Welcome. This repository is the primary locator, onboarding path, and navigation
 
 > **Do not ingest everything at once.** Discover the whole ecosystem, then work through one relevant project at a time.
 
+
+> **Portfolio maturity:** Open research, documentation, and synthetic test fixtures. This repository is the canonical directory and coordination front door—not a unified production agent runtime. Individual projects define their own maturity and validation limits; no ecosystem-wide certification or production release is claimed.
+
 ## Start here
 0. Current ecosystem status: [Release-readiness review](RELEASE-READINESS-REVIEW.md), [release package plan](RELEASE-PACKAGE-PLAN.md), and [security policy](SECURITY.md).
 1. Humans: [START-HERE.md](START-HERE.md).
